@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drone aan Huis – Jim Schellekens</title>
-  <!-- Favicon (logo voor in browsertab) -->
+  <title>Drone aan Huis</title>
   <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
-  <!-- Fallback als logo niet bestaat: geen icon, gewoon weglaten -->
   <!-- Font Awesome (voor enkele icoontjes) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -374,11 +372,9 @@
 </head>
 <body>
 <div class="container">
-  <!-- header met logo (als bestand bestaat, anders alleen tekst) -->
   <div class="header-flex">
     <div class="logo-blok">
-      <!-- logo wordt getoond als het bestaat, anders niet zichtbaar (geen fallback icoon) -->
-      <img src="logo.png" alt="Drone aan Huis" class="logo-img" onerror="this.style.display='none'">
+      <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
       <h1>Drone aan Huis</h1>
     </div>
     <div class="naam-badge">
@@ -386,17 +382,15 @@
     </div>
   </div>
 
-  <!-- regio zonder nadruk op leeftijd -->
   <div class="regio-tag">
     <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
-    <span style="margin-left:0.7rem;"><i class="fas fa-4k"></i> 4K</span>
-    <span style="margin-left:0.7rem;"><i class="fas fa-drone"></i> 1 drone</span>
+    <span style="margin-left:0.7rem;"><i class="fa-solid fa-camera"></i> 4K</span>
   </div>
 
   <!-- introductie (neutraal) -->
   <div class="intro-box">
-    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per sessie (accu en zo).</p>
-    <p style="margin-top:1rem;"><i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">jimschel1@outlook.com</a></p>
+    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per sessie (dat is de maximale vliegtijd van mijn drone).</p>
+    <p style="margin-top:1rem;"><i class="fa-solid fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">Jimschel1@outlook.com</a></p>
   </div>
 
   <!-- titel pakketten -->
@@ -409,8 +403,8 @@
       <h3>Basis</h3>
       <div class="pakket-prijs">€10 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fas fa-check"></i> 15 min vliegen</li>
-        <li><i class="fas fa-video"></i> 4K ruwe beelden</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos</li>
         <li><i class="fas fa-camera"></i> 10 foto's</li>
         <li><i class="fas fa-drone"></i> 1 drone</li>
       </ul>
@@ -421,8 +415,8 @@
       <h3>Plus</h3>
       <div class="pakket-prijs">€15 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fas fa-check"></i> 15 min vliegen</li>
-        <li><i class="fas fa-video"></i> 4K + betere shots</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos</li>
         <li><i class="fas fa-images"></i> 20 foto's bewerkt</li>
         <li><i class="fas fa-drone"></i> 1 drone</li>
       </ul>
@@ -433,28 +427,16 @@
       <h3>Premium</h3>
       <div class="pakket-prijs">€20 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fas fa-check"></i> 15 min vliegen</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K + slowmotion</li>
         <li><i class="fas fa-crown"></i> extra aandacht</li>
         <li><i class="fas fa-battery-full"></i> extra accu</li>
       </ul>
       <button class="kies-knop pakket-kies" data-pakket="Premium"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
-    <!-- vliegles -->
-    <div class="pakket-card" data-pakketnaam="Vliegles">
-      <h3>Vliegles</h3>
-      <div class="pakket-prijs">€12 <small>per keer</small></div>
-      <ul class="pakket-lijst">
-        <li><i class="fas fa-check"></i> 15 min les</li>
-        <li><i class="fas fa-graduation-cap"></i> 1-op-1 uitleg</li>
-        <li><i class="fas fa-drone"></i> oefenen met Jim</li>
-        <li><i class="fas fa-map"></i> bij jou in de buurt</li>
-      </ul>
-      <button class="kies-knop pakket-kies" data-pakket="Vliegles"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
-    </div>
   </div>
 
-  <!-- montageblok (eerst verborgen) -->
+  <!-- montageblok -->
   <div id="montageSectie" class="montage-blok hidden">
     <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
     <div style="font-size:1.2rem; margin-bottom:1rem;" id="toonGekozenPakket"></div>
