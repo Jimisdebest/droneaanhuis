@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drone aan Huis – Jim Schellekens</title>
+  <!-- Favicon (logo voor in browsertab) -->
+  <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+  <!-- Fallback als logo niet bestaat: geen icon, gewoon weglaten -->
   <!-- Font Awesome (voor enkele icoontjes) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -49,14 +52,10 @@
     .logo-img {
       width: 70px;
       height: auto;
+      display: block; /* normaal getoond */
     }
 
-    .logo-fallback {
-      display: none;
-      font-size: 3rem;
-      color: #0a4b5c;
-    }
-
+    /* als logo niet laadt, wordt ie niet getoond en blijft tekst over */
     .logo-blok h1 {
       font-size: 2.2rem;
       font-weight: 600;
@@ -74,7 +73,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
 
-    /* tagline regio */
+    /* regio tag */
     .regio-tag {
       background: #eef3f7;
       border-radius: 60px;
@@ -197,7 +196,7 @@
       color: white;
     }
 
-    /* montage blok (staat na klikken zichtbaar) */
+    /* montage blok */
     .montage-blok {
       background: #eef6fb;
       border-radius: 2.5rem;
@@ -303,6 +302,12 @@
       box-shadow: 0 0 0 3px rgba(10, 111, 135, 0.2);
     }
 
+    /* datum veld specifiek */
+    .form-groep input[type="date"] {
+      font-family: inherit;
+      color: #115a6b;
+    }
+
     .verstuur-knop {
       background: #115f72;
       color: white;
@@ -369,11 +374,11 @@
 </head>
 <body>
 <div class="container">
-  <!-- header (geen leeftijd prominent, alleen naam) -->
+  <!-- header met logo (als bestand bestaat, anders alleen tekst) -->
   <div class="header-flex">
     <div class="logo-blok">
-      <img src="logo.png" alt="Drone aan Huis" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='inline-block';">
-      <i class="fas fa-drone logo-fallback" style="display:none;"></i>
+      <!-- logo wordt getoond als het bestaat, anders niet zichtbaar (geen fallback icoon) -->
+      <img src="logo.png" alt="Drone aan Huis" class="logo-img" onerror="this.style.display='none'">
       <h1>Drone aan Huis</h1>
     </div>
     <div class="naam-badge">
@@ -388,7 +393,7 @@
     <span style="margin-left:0.7rem;"><i class="fas fa-drone"></i> 1 drone</span>
   </div>
 
-  <!-- introductie (neutraal, geen 11) -->
+  <!-- introductie (neutraal) -->
   <div class="intro-box">
     <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per sessie (accu en zo).</p>
     <p style="margin-top:1rem;"><i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">jimschel1@outlook.com</a></p>
@@ -397,7 +402,7 @@
   <!-- titel pakketten -->
   <div class="tussentitel">Kies je pakket</div>
 
-  <!-- pakketten grid (geen leeftijd, geen montageprijs per pakket) -->
+  <!-- pakketten grid -->
   <div class="pakket-grid">
     <!-- basis -->
     <div class="pakket-card" data-pakketnaam="Basis">
@@ -449,7 +454,7 @@
     </div>
   </div>
 
-  <!-- montageblok (eerst verborgen, wordt zichtbaar na klik) -->
+  <!-- montageblok (eerst verborgen) -->
   <div id="montageSectie" class="montage-blok hidden">
     <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
     <div style="font-size:1.2rem; margin-bottom:1rem;" id="toonGekozenPakket"></div>
@@ -483,7 +488,7 @@
     </div>
   </div>
 
-  <!-- formulier sectie (eerst ook verborgen, wordt na montage zichtbaar) -->
+  <!-- formulier sectie (eerst verborgen) -->
   <div id="formulierSectie" class="form-blok hidden">
     <h2>Uw gegevens</h2>
     <div class="gekozen-pakket" id="gekozenPakketLabel">Pakket: Basis</div>
@@ -510,8 +515,13 @@
         <label>Plaats / woonplaats</label>
         <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
       </div>
+      <!-- nieuw datumveld -->
       <div class="form-groep">
-        <label>Opmerkingen (bijv. dag of tijd)</label>
+        <label>Kies een datum</label>
+        <input type="date" name="datum" required>
+      </div>
+      <div class="form-groep">
+        <label>Opmerkingen (bijv. tijd)</label>
         <input type="text" name="opmerking" placeholder="eventueel extra info">
       </div>
       <button type="submit" class="verstuur-knop"><i class="fas fa-paper-plane"></i> Verstuur aanvraag</button>
@@ -525,7 +535,7 @@
     <p>Bedankt voor het invullen van het formulier. We nemen zo snel mogelijk contact met u op.</p>
   </div>
 
-  <!-- footer simpel -->
+  <!-- footer -->
   <footer>
     <p>Drone aan Huis – Jim Schellekens · <a href="mailto:jimschel1@outlook.com" style="color:#0a4b5c;">jimschel1@outlook.com</a></p>
     <p>Betaling: contant bij aankomst, voor het vliegen. Max 15 minuten vliegen.</p>
@@ -549,7 +559,7 @@
     const gaNaarGegevensBtn = document.getElementById('gaNaarGegevens');
     const boekForm = document.getElementById('boekForm');
 
-    let gekozenPakket = 'Basis'; // standaard
+    let gekozenPakket = 'Basis';
 
     // montagekaarten selecteren
     const montageCards = document.querySelectorAll('.montage-optie-card');
@@ -570,22 +580,18 @@
         e.preventDefault();
         const pakket = this.dataset.pakket;
         gekozenPakket = pakket;
-        // toon montageblok, verberg formulier en bedank
         montageSectie.classList.remove('hidden');
         formulierSectie.classList.add('hidden');
         bedankBox.classList.add('hidden');
-        // update hidden veldje en tekst
         fieldPakket.value = pakket + ' pakket (15 min)';
         toonPakket.innerHTML = `Gekozen pakket: <strong>${pakket}</strong>`;
         gekozenPakketLabel.innerText = `Pakket: ${pakket}`;
-        // scroll naar montageblok
         montageSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
     // ga naar gegevens knop
     gaNaarGegevensBtn.addEventListener('click', function() {
-      // check welke montage geselecteerd
       const selectedMontage = document.querySelector('.montage-optie-card.selected');
       let montageTekst = 'Geen montage';
       if (selectedMontage) {
@@ -593,7 +599,6 @@
       }
       fieldMontage.value = montageTekst;
       gekozenMontageLabel.innerHTML = `Montage: <strong>${montageTekst}</strong>`;
-      // toon formulier
       formulierSectie.classList.remove('hidden');
       formulierSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -602,7 +607,6 @@
     boekForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // zorg dat montage hidden up-to-date is
       const selectedMontage = document.querySelector('.montage-optie-card.selected');
       let montageTekst = 'Geen montage';
       if (selectedMontage) montageTekst = selectedMontage.dataset.montage;
@@ -616,7 +620,6 @@
       })
       .then(response => {
         if (response.ok) {
-          // verberg formulier en montage, toon bedankbericht
           formulierSectie.classList.add('hidden');
           montageSectie.classList.add('hidden');
           bedankBox.classList.remove('hidden');
