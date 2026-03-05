@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drone aan Huis – Jim (11) vliegt bij jou</title>
-  <!-- Font Awesome voor icoontjes -->
+  <title>Drone aan Huis – Jim Schellekens</title>
+  <!-- Font Awesome (voor enkele icoontjes) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -12,558 +12,603 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #d4eaf5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f9fd;
+      color: #1a3636;
+      line-height: 1.5;
       padding: 1.2rem;
-      color: #03303f;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      background: white;
+      background: #ffffff;
       border-radius: 2rem;
-      padding: 2rem 1.8rem;
-      box-shadow: 0 8px 20px rgba(0,40,60,0.2);
+      box-shadow: 0 20px 35px -8px rgba(0, 65, 80, 0.15);
+      padding: 2rem 2rem;
     }
+
     /* header */
-    .top {
+    .header-flex {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
-    .logo-area {
+
+    .logo-blok {
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
+
     .logo-img {
-      width: 65px;
+      width: 70px;
       height: auto;
     }
+
     .logo-fallback {
       display: none;
       font-size: 3rem;
-      color: #065268;
+      color: #0a4b5c;
     }
-    .logo-area h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #065268;
-    }
-    .piloot {
-      background: #065268;
-      color: white;
-      padding: 0.4rem 1.5rem;
-      border-radius: 40px;
+
+    .logo-blok h1 {
+      font-size: 2.2rem;
       font-weight: 600;
-      font-size: 1.2rem;
+      letter-spacing: -0.5px;
+      color: #0a4b5c;
     }
-    /* simpele info */
-    .simpel {
+
+    .naam-badge {
+      background: #e4eff5;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 500;
       font-size: 1.3rem;
-      margin: 0.5rem 0 1.8rem 0;
-      padding-bottom: 0.8rem;
-      border-bottom: 2px solid #b7d9ea;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      color: #0a4b5c;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    /* tagline regio */
+    .regio-tag {
+      background: #eef3f7;
+      border-radius: 60px;
+      padding: 0.5rem 1.8rem;
+      display: inline-flex;
       align-items: center;
-    }
-    .gebied {
-      background: #fed9b0;
-      padding: 0.2rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
+      gap: 0.6rem;
       font-size: 1.2rem;
-    }
-    .leeftijd-badge {
-      background: #ffe68f;
-      padding: 0.2rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-    }
-    /* introductie met uitleg leeftijd en 15 min */
-    .intro-simpel {
-      background: #eff7fc;
-      padding: 1.5rem 2rem;
-      border-radius: 2.5rem;
       margin-bottom: 2rem;
-      line-height: 1.6;
-      font-size: 1.2rem;
-      border-left: 8px solid #065268;
+      border: 1px solid #d0e2ed;
     }
-    /* pakketten */
+
+    /* intro */
+    .intro-box {
+      background: #f9fdfe;
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #daeef7;
+      box-shadow: 0 8px 18px -8px rgba(0,80,100,0.1);
+      transition: 0.2s;
+    }
+
+    .intro-box p {
+      font-size: 1.3rem;
+      max-width: 850px;
+    }
+
+    /* pakketten grid */
+    .tussentitel {
+      font-size: 2rem;
+      font-weight: 500;
+      margin: 2.5rem 0 1rem;
+      color: #125e72;
+      border-left: 6px solid #88c2d9;
+      padding-left: 1.3rem;
+    }
+
     .pakket-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 2rem;
     }
-    .kaart {
-      background: #f4fafd;
-      border-radius: 1.5rem;
-      border: 1px solid #b7d4e8;
-      overflow: hidden;
+
+    .pakket-card {
+      background: #f8fcff;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.5rem 1.5rem;
+      border: 1px solid #cde1ec;
+      transition: all 0.25s ease;
     }
-    .kaart-header {
-      background: #075e78;
-      color: white;
-      padding: 1rem 1.2rem;
+
+    .pakket-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -10px #abc9db;
+      border-color: #9ac2d9;
     }
-    .kaart-header h3 {
-      font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+
+    .pakket-card h3 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #074353;
+      margin-bottom: 0.8rem;
     }
-    .prijs {
-      font-size: 2.2rem;
-      font-weight: 800;
-      padding: 0.8rem 1.2rem;
-      background: #e2f0f7;
-      color: #043f52;
+
+    .pakket-prijs {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: #0b4f5e;
+      margin: 0.5rem 0 1rem;
+      border-bottom: 2px dotted #bddbea;
+      padding-bottom: 0.5rem;
     }
-    .prijs small {
+
+    .pakket-prijs small {
       font-size: 1rem;
       font-weight: 400;
+      color: #4f6f7c;
     }
-    .lijstje {
-      padding: 1.2rem 1.2rem 0.8rem;
+
+    .pakket-lijst {
       list-style: none;
+      margin: 1.2rem 0;
     }
-    .lijstje li {
+
+    .pakket-lijst li {
       margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 1.1rem;
     }
-    /* montage knoppen in de kaart */
-    .montage-keuze {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin: 0.8rem 1.2rem;
+
+    .pakket-lijst i {
+      color: #1d7d94;
+      width: 24px;
     }
-    .montage-optie {
-      background: #f0f7fd;
-      border: 2px solid #aac9dd;
-      border-radius: 40px;
-      padding: 0.6rem 1rem;
+
+    .kies-knop {
+      background: transparent;
+      border: 2px solid #0b5e74;
+      color: #0b5e74;
+      font-size: 1.2rem;
       font-weight: 600;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 0.8rem;
       display: flex;
       align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: 0.1s;
+      justify-content: center;
+      gap: 10px;
     }
-    .montage-optie.selected {
-      background: #c6e2b0;
-      border-color: #2e7d32;
-    }
-    .montage-optie input[type="radio"] {
-      width: 18px;
-      height: 18px;
-      accent-color: #075e78;
-      margin-right: 6px;
-    }
-    .montage-prijs {
-      margin-left: auto;
-      font-weight: 700;
-      color: #0c546b;
-    }
-    .boek-knop {
-      display: block;
-      background: white;
-      border: 2px solid #075e78;
-      color: #075e78;
-      text-align: center;
-      font-weight: 700;
-      padding: 0.8rem;
-      margin: 0.8rem 1.2rem 1.5rem 1.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .boek-knop i {
-      margin-right: 8px;
-    }
-    .boek-knop:hover {
-      background: #075e78;
+
+    .kies-knop:hover {
+      background: #0b5e74;
       color: white;
+    }
+
+    /* montage blok (staat na klikken zichtbaar) */
+    .montage-blok {
+      background: #eef6fb;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.2rem;
+      margin: 2.5rem 0 2rem;
+      border: 2px solid #b2d5ea;
+      scroll-margin-top: 30px;
+      transition: 0.3s;
+    }
+
+    .montage-blok h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #024353;
+      margin-bottom: 1.8rem;
+    }
+
+    .montage-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .montage-optie-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      flex: 1 1 240px;
+      border: 2px solid #bfddec;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .montage-optie-card.selected {
+      border-color: #3b8ba0;
+      background: #e0f0f7;
+      box-shadow: 0 0 0 3px rgba(27, 119, 142, 0.3);
+    }
+
+    .montage-optie-card h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .montage-prijs {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #104c5c;
+      margin: 1rem 0;
+    }
+
+    .montage-optie-card i {
+      font-size: 2rem;
+      color: #21758b;
+      margin-bottom: 0.5rem;
     }
 
     /* formulier */
-    .formulier-blok {
-      background: #dff0f9;
-      padding: 2rem 2rem 2.2rem;
+    .form-blok {
+      background: #f5fafd;
       border-radius: 2.5rem;
-      margin: 2.5rem 0 1.5rem;
+      padding: 2.5rem 2.2rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #c8e2f0;
     }
-    .formulier-blok h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #033b4f;
-    }
-    .form-groep {
-      margin-bottom: 1.2rem;
-    }
-    .form-groep label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      font-size: 1.1rem;
-    }
-    .form-groep input, .form-groep select {
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      font-size: 1.1rem;
-      border: 2px solid white;
-      border-radius: 60px;
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .form-groep input:focus, .form-groep select:focus {
-      outline: 2px solid #065268;
-    }
-    .verstuur-btn {
-      background: #065268;
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 1rem 2rem;
-      border-radius: 60px;
-      width: 100%;
-      cursor: pointer;
-      margin-top: 0.8rem;
-    }
-    .verstuur-btn:hover {
-      background: #043946;
-    }
-    /* bedankbericht (eerst verborgen) */
-    .bedank-bericht {
-      background: #cae4d4;
-      border-radius: 2.5rem;
-      padding: 2rem;
-      text-align: center;
-      margin: 2rem 0;
-      border: 4px solid #1b7e5c;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-    .bedank-bericht i {
-      font-size: 3rem;
-      color: #1b7e5c;
+
+    .form-blok h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: #024353;
       margin-bottom: 1rem;
     }
 
-    .mail-link {
-      font-size: 1.2rem;
-      background: #fff5d0;
-      display: inline-block;
-      padding: 0.3rem 1.5rem;
-      border-radius: 40px;
-      margin: 0.5rem 0;
+    .form-groep {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-groep label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      color: #115a6b;
+    }
+
+    .form-groep input {
+      width: 100%;
+      padding: 1rem 1.4rem;
+      font-size: 1.1rem;
+      border: 2px solid #d6e9f2;
+      border-radius: 60px;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .form-groep input:focus {
+      outline: none;
+      border-color: #0b798f;
+      box-shadow: 0 0 0 3px rgba(10, 111, 135, 0.2);
+    }
+
+    .verstuur-knop {
+      background: #115f72;
+      color: white;
+      border: none;
+      font-size: 1.5rem;
       font-weight: 600;
+      padding: 1.1rem 2rem;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
     }
-    .mail-link i {
-      margin-right: 6px;
-      color: #c14f00;
+
+    .verstuur-knop:hover {
+      background: #0b4757;
+      transform: scale(1.01);
     }
+
+    /* bedankbericht */
+    .bedank-box {
+      background: #daf1e7;
+      border-radius: 2.5rem;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      border: 3px solid #479f89;
+      font-size: 1.6rem;
+    }
+
+    .mail-link {
+      background: #ecf3f7;
+      border-radius: 60px;
+      padding: 0.3rem 1.8rem;
+      display: inline-block;
+    }
+
     .mail-link a {
       text-decoration: none;
-      color: #065268;
+      color: #115f72;
+      font-weight: 500;
     }
+
     footer {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       text-align: center;
-      font-size: 0.95rem;
-      color: #3e6577;
+      color: #436d7a;
+      border-top: 1px solid #cde1ec;
+      padding-top: 2rem;
     }
-    hr {
-      border: 1px solid #c2ddeb;
-      margin: 2rem 0 1rem;
+
+    .hidden {
+      display: none;
     }
-    .nadruk {
-      background: #f9e2c0;
+
+    .gekozen-pakket {
+      background: #c6e2f0;
+      padding: 0.3rem 2rem;
       border-radius: 60px;
-      padding: 0.3rem 1.3rem;
       display: inline-block;
-      margin: 0.2rem;
-    }
-    .betaling {
-      background: #fbecd3;
-      border-radius: 60px;
-      padding: 0.4rem 1.4rem;
-      font-weight: 600;
-    }
-    .max-tijd {
-      font-weight: 700;
-      color: #b33f00;
+      font-size: 1.3rem;
+      margin: 0.5rem 0 1.5rem;
     }
   </style>
 </head>
 <body>
-<div class="container" id="hoofdContainer">
-  <!-- logo + naam -->
-  <div class="top">
-    <div class="logo-area">
+<div class="container">
+  <!-- header (geen leeftijd prominent, alleen naam) -->
+  <div class="header-flex">
+    <div class="logo-blok">
       <img src="logo.png" alt="Drone aan Huis" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='inline-block';">
       <i class="fas fa-drone logo-fallback" style="display:none;"></i>
       <h1>Drone aan Huis</h1>
     </div>
-    <div class="piloot">
-      <i class="fas fa-user"></i> Jim (11 jaar)
+    <div class="naam-badge">
+      <i class="far fa-smile"></i> Jim Schellekens
     </div>
   </div>
 
-  <!-- simpele tekst + gebieden + leeftijd -->
-  <div class="simpel">
-    <span><i class="fas fa-map-pin" style="color:#075e78;"></i> <strong>Noordwijk, Noordwijkerhout, De Zilk, Voorhout</strong></span>
-    <span class="gebied"><i class="fas fa-4k"></i> altijd 4K</span>
-    <span class="leeftijd-badge"><i class="fas fa-cake-candles"></i> 11 jaar (in m'n eentje)</span>
+  <!-- regio zonder nadruk op leeftijd -->
+  <div class="regio-tag">
+    <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
+    <span style="margin-left:0.7rem;"><i class="fas fa-4k"></i> 4K</span>
+    <span style="margin-left:0.7rem;"><i class="fas fa-drone"></i> 1 drone</span>
   </div>
 
-  <!-- intro met belangrijke info: 15 min max, betaling bij aankomst -->
-  <div class="intro-simpel">
-    <p><i class="fas fa-hand-peace" style="color:#075e78; font-size:2rem; margin-right:0.5rem; float:left;"></i></p>
-    <p><strong>Hoi, ik ben Jim (11 jaar).</strong> Ik vlieg helemaal alleen met mijn drone. Omdat ik nog jong ben, <span class="max-tijd">vlieg ik maximaal 15 minuten</span> per sessie. Daarna is de accu leeg. Je betaalt pas <strong>contant als ik bij je aankom, vóór het vliegen</strong>. Simpel en eerlijk.</p>
-    <p style="margin-top:0.8rem;">📧 <a href="mailto:jimschel1@outlook.com" style="color:#065268;">jimschel1@outlook.com</a> (geen telefoon)</p>
+  <!-- introductie (neutraal, geen 11) -->
+  <div class="intro-box">
+    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per sessie (accu en zo).</p>
+    <p style="margin-top:1rem;"><i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">jimschel1@outlook.com</a></p>
   </div>
 
-  <!-- pakketten - overal max 15 min -->
-  <h2 style="font-size:1.8rem; margin-top:1rem;"><i class="fas fa-box"></i> Pakketten (max 15 min vliegen)</h2>
-  <div class="pakket-grid" id="pakkettenGrid">
-    <!-- basis 10 euro -->
-    <div class="kaart" data-pakket="Basis">
-      <div class="kaart-header"><h3><i class="fas fa-leaf"></i> Basis</h3></div>
-      <div class="prijs">€10 <small>per keer</small></div>
-      <ul class="lijstje">
-        <li><i class="fas fa-clock"></i> <strong>15 min vliegen</strong> (max)</li>
+  <!-- titel pakketten -->
+  <div class="tussentitel">Kies je pakket</div>
+
+  <!-- pakketten grid (geen leeftijd, geen montageprijs per pakket) -->
+  <div class="pakket-grid">
+    <!-- basis -->
+    <div class="pakket-card" data-pakketnaam="Basis">
+      <h3>Basis</h3>
+      <div class="pakket-prijs">€10 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-check"></i> 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K ruwe beelden</li>
-        <li><i class="fas fa-drone"></i> 1 drone (DJI)</li>
         <li><i class="fas fa-camera"></i> 10 foto's</li>
+        <li><i class="fas fa-drone"></i> 1 drone</li>
       </ul>
-      <!-- montage keuze voor dit pakket -->
-      <div class="montage-keuze" data-pakket="Basis">
-        <label class="montage-optie">
-          <input type="radio" name="montage_basis" value="geen" checked> Geen montage
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_basis" value="basis_montage"> <i class="fas fa-scissors"></i> Videomontage Basis <span class="montage-prijs">€2</span>
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_basis" value="premium_montage"> <i class="fas fa-star"></i> Videomontage Premium <span class="montage-prijs">€5</span>
-        </label>
-      </div>
-      <a href="#" class="boek-knop" data-pakket="Basis"><i class="fas fa-calendar-plus"></i> Boek basis</a>
+      <button class="kies-knop pakket-kies" data-pakket="Basis"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
     <!-- plus -->
-    <div class="kaart" data-pakket="Plus">
-      <div class="kaart-header" style="background:#1d6f8b;"><h3><i class="fas fa-star"></i> Plus</h3></div>
-      <div class="prijs">€15 <small>per keer</small></div>
-      <ul class="lijstje">
-        <li><i class="fas fa-clock"></i> <strong>15 min vliegen</strong> (max)</li>
+    <div class="pakket-card" data-pakketnaam="Plus">
+      <h3>Plus</h3>
+      <div class="pakket-prijs">€15 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-check"></i> 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K + betere shots</li>
-        <li><i class="fas fa-drone"></i> 1 drone</li>
         <li><i class="fas fa-images"></i> 20 foto's bewerkt</li>
+        <li><i class="fas fa-drone"></i> 1 drone</li>
       </ul>
-      <div class="montage-keuze" data-pakket="Plus">
-        <label class="montage-optie">
-          <input type="radio" name="montage_plus" value="geen" checked> Geen montage
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_plus" value="basis_montage"> <i class="fas fa-scissors"></i> Videomontage Basis <span class="montage-prijs">€2</span>
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_plus" value="premium_montage"> <i class="fas fa-star"></i> Videomontage Premium <span class="montage-prijs">€5</span>
-        </label>
-      </div>
-      <a href="#" class="boek-knop" data-pakket="Plus"><i class="fas fa-calendar-plus"></i> Boek plus</a>
+      <button class="kies-knop pakket-kies" data-pakket="Plus"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
     <!-- premium -->
-    <div class="kaart" data-pakket="Premium">
-      <div class="kaart-header" style="background:#145b72;"><h3><i class="fas fa-crown"></i> Premium</h3></div>
-      <div class="prijs">€20 <small>per keer</small></div>
-      <ul class="lijstje">
-        <li><i class="fas fa-clock"></i> <strong>15 min vliegen</strong> (max)</li>
+    <div class="pakket-card" data-pakketnaam="Premium">
+      <h3>Premium</h3>
+      <div class="pakket-prijs">€20 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-check"></i> 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K + slowmotion</li>
-        <li><i class="fas fa-drone"></i> 1 drone, extra accu</li>
         <li><i class="fas fa-crown"></i> extra aandacht</li>
+        <li><i class="fas fa-battery-full"></i> extra accu</li>
       </ul>
-      <div class="montage-keuze" data-pakket="Premium">
-        <label class="montage-optie">
-          <input type="radio" name="montage_premium" value="geen" checked> Geen montage
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_premium" value="basis_montage"> <i class="fas fa-scissors"></i> Videomontage Basis <span class="montage-prijs">€2</span>
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_premium" value="premium_montage"> <i class="fas fa-star"></i> Videomontage Premium <span class="montage-prijs">€5</span>
-        </label>
-      </div>
-      <a href="#" class="boek-knop" data-pakket="Premium"><i class="fas fa-calendar-plus"></i> Boek premium</a>
+      <button class="kies-knop pakket-kies" data-pakket="Premium"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
     <!-- vliegles -->
-    <div class="kaart" data-pakket="Vliegles">
-      <div class="kaart-header" style="background:#3f798f;"><h3><i class="fas fa-graduation-cap"></i> Vliegles</h3></div>
-      <div class="prijs">€12 <small>per keer</small></div>
-      <ul class="lijstje">
-        <li><i class="fas fa-clock"></i> <strong>15 min les</strong> (max)</li>
+    <div class="pakket-card" data-pakketnaam="Vliegles">
+      <h3>Vliegles</h3>
+      <div class="pakket-prijs">€12 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-check"></i> 15 min les</li>
+        <li><i class="fas fa-graduation-cap"></i> 1-op-1 uitleg</li>
         <li><i class="fas fa-drone"></i> oefenen met Jim</li>
-        <li><i class="fas fa-location-dot"></i> bij jou in de buurt</li>
-        <li><i class="fas fa-chalkboard"></i> uitleg en zelf vliegen</li>
+        <li><i class="fas fa-map"></i> bij jou in de buurt</li>
       </ul>
-      <div class="montage-keuze" data-pakket="Vliegles">
-        <label class="montage-optie">
-          <input type="radio" name="montage_les" value="geen" checked> Geen montage
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_les" value="basis_montage"> <i class="fas fa-scissors"></i> Videomontage Basis <span class="montage-prijs">€2</span>
-        </label>
-        <label class="montage-optie">
-          <input type="radio" name="montage_les" value="premium_montage"> <i class="fas fa-star"></i> Videomontage Premium <span class="montage-prijs">€5</span>
-        </label>
-      </div>
-      <a href="#" class="boek-knop" data-pakket="Vliegles"><i class="fas fa-calendar-plus"></i> Boek les</a>
+      <button class="kies-knop pakket-kies" data-pakket="Vliegles"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
   </div>
 
-  <!-- betaling bij aankomst duidelijk -->
-  <div style="display:flex; justify-content:center; margin:1rem 0 2rem;">
-    <span class="betaling"><i class="fas fa-money-bill-wave"></i> Betaling: contant bij aankomst, vóór het vliegen</span>
+  <!-- montageblok (eerst verborgen, wordt zichtbaar na klik) -->
+  <div id="montageSectie" class="montage-blok hidden">
+    <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
+    <div style="font-size:1.2rem; margin-bottom:1rem;" id="toonGekozenPakket"></div>
+    <div class="montage-flex">
+      <!-- geen montage -->
+      <div class="montage-optie-card" data-montage="Geen montage" data-prijs="0">
+        <i class="fas fa-ban"></i>
+        <h3>Geen montage</h3>
+        <div class="montage-prijs">€0</div>
+        <p style="color:#2d5d6e;">Je krijgt de ruwe beelden</p>
+      </div>
+      <!-- montage basis 2 euro -->
+      <div class="montage-optie-card" data-montage="Videomontage Basis" data-prijs="2">
+        <i class="fas fa-video"></i>
+        <h3>Basis montage</h3>
+        <div class="montage-prijs">€2</div>
+        <p style="color:#2d5d6e;">Eenvoudige montage, 1 minuut</p>
+      </div>
+      <!-- montage premium 5 euro -->
+      <div class="montage-optie-card" data-montage="Videomontage Premium" data-prijs="5">
+        <i class="fas fa-star"></i>
+        <h3>Premium montage</h3>
+        <div class="montage-prijs">€5</div>
+        <p style="color:#2d5d6e;">Montage met effecten, 2-3 min</p>
+      </div>
+    </div>
+    <!-- verborgen input voor montagekeuze -->
+    <input type="hidden" id="montageKeuze" value="Geen montage">
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder naar uw gegevens</button>
+    </div>
   </div>
 
-  <!-- Formspree formulier -->
-  <div class="formulier-blok" id="form-boek">
-    <h3><i class="fas fa-pen"></i> Boek nu <span id="pakket-select" style="background:#043b4b; color:white; padding:0.2rem 1rem; border-radius:60px;"> Basis</span></h3>
-    <p>Vul je gegevens in. Ik mail je snel terug.</p>
-    <form action="https://formspree.io/f/xnjgavrv" method="POST" id="boekForm">
-      <!-- verborgen velden worden gevuld via javascript -->
-      <input type="hidden" name="pakket" id="formspree-pakket" value="Basis">
-      <input type="hidden" name="montage_keuze" id="formspree-montage" value="Geen montage">
-      
+  <!-- formulier sectie (eerst ook verborgen, wordt na montage zichtbaar) -->
+  <div id="formulierSectie" class="form-blok hidden">
+    <h2>Uw gegevens</h2>
+    <div class="gekozen-pakket" id="gekozenPakketLabel">Pakket: Basis</div>
+    <div style="margin-bottom:1.2rem;" id="gekozenMontageLabel"></div>
+
+    <form id="boekForm" action="https://formspree.io/f/xnjgavrv" method="POST">
+      <!-- hidden velden voor pakket en montage -->
+      <input type="hidden" name="pakket" id="fieldPakket" value="Basis">
+      <input type="hidden" name="montage" id="fieldMontage" value="Geen montage">
+
       <div class="form-groep">
-        <label>Jouw naam</label>
-        <input type="text" name="naam" placeholder="bijv. Jan Jansen" required>
+        <label>Naam</label>
+        <input type="text" name="naam" placeholder="Jan Jansen" required>
       </div>
       <div class="form-groep">
-        <label>E-mailadres</label>
+        <label>E-mail</label>
         <input type="email" name="email" placeholder="jan@voorbeeld.nl" required>
       </div>
       <div class="form-groep">
         <label>Telefoonnummer (niet verplicht)</label>
-        <input type="tel" name="telefoon" placeholder="06 - optioneel">
+        <input type="tel" name="telefoon" placeholder="06 12345678">
       </div>
       <div class="form-groep">
         <label>Plaats / woonplaats</label>
         <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
       </div>
       <div class="form-groep">
-        <label>Extra opmerkingen (welke dag, etc.)</label>
-        <input type="text" name="opmerking" placeholder="bijv. voorkeursdag">
+        <label>Opmerkingen (bijv. dag of tijd)</label>
+        <input type="text" name="opmerking" placeholder="eventueel extra info">
       </div>
-      <button type="submit" class="verstuur-btn" id="verstuurBtn"><i class="fas fa-paper-plane"></i> Verstuur aanvraag</button>
+      <button type="submit" class="verstuur-knop"><i class="fas fa-paper-plane"></i> Verstuur aanvraag</button>
     </form>
-    <p style="margin-top:1rem; font-size:1.1rem;">of mail direct: 
-      <span class="mail-link"><i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com">jimschel1@outlook.com</a></span>
-    </p>
+    <p style="margin-top:1.5rem;">of <i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#115f72;">mail direct</a></p>
   </div>
 
-  <!-- Bedankbericht (eerst verborgen) -->
-  <div class="bedank-bericht" id="bedankBericht" style="display: none;">
-    <i class="fas fa-check-circle"></i>
+  <!-- bedankbericht (eerst verborgen) -->
+  <div id="bedankBericht" class="bedank-box hidden">
+    <i class="fas fa-check-circle" style="font-size:3rem; color:#2d7a64;"></i>
     <p>Bedankt voor het invullen van het formulier. We nemen zo snel mogelijk contact met u op.</p>
-    <p style="font-size:1.2rem; margin-top:1rem;">👋 Jim (11) reageert snel via mail.</p>
   </div>
 
-  <!-- onderaan: geen socials, wel mailto -->
-  <div style="background:#edf5fa; border-radius:2rem; padding:1.2rem 2rem; margin:2rem 0; text-align:center;">
-    <span style="font-size:1.3rem;"><i class="fas fa-thumbs-up"></i> Max 15 min vliegen · 4K · 1 drone · Jim is 11</span><br>
-    <span class="nadruk"><i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="text-decoration:none; color:#033b4f;">jimschel1@outlook.com</a></span>
-    <span class="nadruk"><i class="fas fa-map-marker-alt"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout</span>
-  </div>
-
-  <hr>
+  <!-- footer simpel -->
   <footer>
-    <p>Drone aan Huis – Jim Schellekens (11 jaar). Alleen contant bij aankomst. Max 15 minuten vliegen per sessie.</p>
-    <p><a href="mailto:jimschel1@outlook.com" style="color:#024f66;">jimschel1@outlook.com</a> (alleen mail)</p>
-    <p><i class="far fa-copyright"></i> 2025 Drone aan Huis</p>
+    <p>Drone aan Huis – Jim Schellekens · <a href="mailto:jimschel1@outlook.com" style="color:#0a4b5c;">jimschel1@outlook.com</a></p>
+    <p>Betaling: contant bij aankomst, voor het vliegen. Max 15 minuten vliegen.</p>
+    <p style="margin-top:0.5rem;">Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
   </footer>
 </div>
 
-<!-- Script voor montage selectie en form submit -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('boekForm');
-    const formBlok = document.getElementById('form-boek');
-    const bedankBlok = document.getElementById('bedankBericht');
-    const pakketHidden = document.getElementById('formspree-pakket');
-    const montageHidden = document.getElementById('formspree-montage');
-    const pakketSpan = document.getElementById('pakket-select');
+  (function() {
+    // elementen
+    const pakketKnoppen = document.querySelectorAll('.pakket-kies');
+    const montageSectie = document.getElementById('montageSectie');
+    const formulierSectie = document.getElementById('formulierSectie');
+    const bedankBox = document.getElementById('bedankBericht');
+    const toonPakket = document.getElementById('toonGekozenPakket');
+    const gekozenPakketLabel = document.getElementById('gekozenPakketLabel');
+    const gekozenMontageLabel = document.getElementById('gekozenMontageLabel');
+    const fieldPakket = document.getElementById('fieldPakket');
+    const fieldMontage = document.getElementById('fieldMontage');
+    const montageKeuzeInput = document.getElementById('montageKeuze');
+    const gaNaarGegevensBtn = document.getElementById('gaNaarGegevens');
+    const boekForm = document.getElementById('boekForm');
 
-    // Bij klikken op boek-knop, verzet het gekozen pakket en montage in hidden fields
-    const boekKnoppen = document.querySelectorAll('.boek-knop');
-    boekKnoppen.forEach(knop => {
-      knop.addEventListener('click', function(e) {
+    let gekozenPakket = 'Basis'; // standaard
+
+    // montagekaarten selecteren
+    const montageCards = document.querySelectorAll('.montage-optie-card');
+    montageCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        montageCards.forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        const montageType = this.dataset.montage;
+        montageKeuzeInput.value = montageType;
+      });
+    });
+    // standaard geen montage geselecteerd
+    if (montageCards.length > 0) montageCards[0].classList.add('selected');
+
+    // bij klikken op pakketknop
+    pakketKnoppen.forEach(btn => {
+      btn.addEventListener('click', function(e) {
         e.preventDefault();
-        // vind bijbehorende kaart
-        const kaart = this.closest('.kaart');
-        const pakketNaam = kaart.dataset.pakket; // Basis, Plus, Premium, Vliegles
-        
-        // vind geselecteerde radio binnen deze kaart
-        const radios = kaart.querySelectorAll('input[type="radio"]:checked');
-        let montageTekst = 'Geen montage';
-        if (radios.length > 0) {
-          const waarde = radios[0].value;
-          if (waarde === 'basis_montage') montageTekst = 'Videomontage Basis (€2)';
-          else if (waarde === 'premium_montage') montageTekst = 'Videomontage Premium (€5)';
-          else montageTekst = 'Geen montage';
-        }
-        
-        // update hidden fields
-        pakketHidden.value = pakketNaam + ' pakket (15 min)';
-        montageHidden.value = montageTekst;
-        pakketSpan.innerText = pakketNaam;
-        
-        // scroll naar form
-        formBlok.scrollIntoView({behavior:'smooth'});
+        const pakket = this.dataset.pakket;
+        gekozenPakket = pakket;
+        // toon montageblok, verberg formulier en bedank
+        montageSectie.classList.remove('hidden');
+        formulierSectie.classList.add('hidden');
+        bedankBox.classList.add('hidden');
+        // update hidden veldje en tekst
+        fieldPakket.value = pakket + ' pakket (15 min)';
+        toonPakket.innerHTML = `Gekozen pakket: <strong>${pakket}</strong>`;
+        gekozenPakketLabel.innerText = `Pakket: ${pakket}`;
+        // scroll naar montageblok
+        montageSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-    // Voorkom normale submit en stuur naar formspree met fetch
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      // Zorg dat laatste montagekeuze ook wordt meegenomen (voor het geval iemand handmatig radio wijzigt zonder boekknop)
-      // We pakken het pakket van de hidden, maar montage moet overeenkomen met actieve keuze.
-      // Bepaal welk pakket momenteel geselecteerd staat (op basis van hidden of op basis van laatste klik)
-      // Makkelijk: we lezen de hidden pakket, maar montage bepalen we opnieuw
-      const huidigPakket = pakketHidden.value.includes('Basis') ? 'Basis' : 
-                          (pakketHidden.value.includes('Plus') ? 'Plus' : 
-                          (pakketHidden.value.includes('Premium') ? 'Premium' : 
-                          (pakketHidden.value.includes('Vliegles') ? 'Vliegles' : 'Basis')));
-      
-      // vind de kaart met data-pakket gelijk aan huidigPakket
-      const kaart = document.querySelector(`.kaart[data-pakket="${huidigPakket}"]`);
+    // ga naar gegevens knop
+    gaNaarGegevensBtn.addEventListener('click', function() {
+      // check welke montage geselecteerd
+      const selectedMontage = document.querySelector('.montage-optie-card.selected');
       let montageTekst = 'Geen montage';
-      if (kaart) {
-        const checkedRadio = kaart.querySelector('input[type="radio"]:checked');
-        if (checkedRadio) {
-          if (checkedRadio.value === 'basis_montage') montageTekst = 'Videomontage Basis (€2)';
-          else if (checkedRadio.value === 'premium_montage') montageTekst = 'Videomontage Premium (€5)';
-        }
+      if (selectedMontage) {
+        montageTekst = selectedMontage.dataset.montage;
       }
-      montageHidden.value = montageTekst;
+      fieldMontage.value = montageTekst;
+      gekozenMontageLabel.innerHTML = `Montage: <strong>${montageTekst}</strong>`;
+      // toon formulier
+      formulierSectie.classList.remove('hidden');
+      formulierSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
-      // Verstuur met fetch
-      const formData = new FormData(form);
-      
+    // form submit met fetch
+    boekForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // zorg dat montage hidden up-to-date is
+      const selectedMontage = document.querySelector('.montage-optie-card.selected');
+      let montageTekst = 'Geen montage';
+      if (selectedMontage) montageTekst = selectedMontage.dataset.montage;
+      fieldMontage.value = montageTekst;
+
+      const formData = new FormData(boekForm);
       fetch('https://formspree.io/f/xnjgavrv', {
         method: 'POST',
         body: formData,
@@ -571,18 +616,18 @@
       })
       .then(response => {
         if (response.ok) {
-          formBlok.style.display = 'none';
-          bedankBlok.style.display = 'block';
-          bedankBlok.scrollIntoView({ behavior: 'smooth' });
+          // verberg formulier en montage, toon bedankbericht
+          formulierSectie.classList.add('hidden');
+          montageSectie.classList.add('hidden');
+          bedankBox.classList.remove('hidden');
+          bedankBox.scrollIntoView({ behavior: 'smooth' });
         } else {
-          alert('Er ging iets mis. Stuur een mailtje naar jimschel1@outlook.com');
+          alert('Er ging iets mis. Stuur een mail naar jimschel1@outlook.com');
         }
       })
-      .catch(error => {
-        alert('Netwerkfout. Mail me direct op jimschel1@outlook.com');
-      });
+      .catch(() => alert('Netwerkfout. Mail naar jimschel1@outlook.com'));
     });
-  });
+  })();
 </script>
 </body>
 </html>
