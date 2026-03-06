@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projecten · Drone aan Huis</title>
+  <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+  <!-- Font Awesome voor iconen -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f9fd;
+      color: #1a3636;
+      line-height: 1.5;
+      padding: 1.2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -8px rgba(0, 65, 80, 0.15);
+      padding: 2rem 2rem;
+    }
+
+    /* header */
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-blok {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-blok h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #0a4b5c;
+    }
+
+    .terug-knop {
+      background: transparent;
+      border: 2px solid #0b5e74;
+      color: #0b5e74;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .terug-knop:hover {
+      background: #0b5e74;
+      color: white;
+    }
+
+    /* paginatitel */
+    .project-titel {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin: 1rem 0 2rem 0;
+      color: #125e72;
+      border-left: 6px solid #88c2d9;
+      padding-left: 1.3rem;
+    }
+
+    .project-inleiding {
+      background: #f9fdfe;
+      border-radius: 2rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #daeef7;
+      font-size: 1.2rem;
+    }
+
+    /* fotogrid */
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .foto-card {
+      background: #f8fcff;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      border: 1px solid #cde1ec;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 12px -6px rgba(0,80,100,0.2);
+    }
+
+    .foto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -10px #abc9db;
+      border-color: #9ac2d9;
+    }
+
+    .foto-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background: #d9e6f0;  /* achtergrondkleur als placeholder */
+      border-bottom: 2px solid #cde1ec;
+    }
+
+    .foto-info {
+      padding: 1.5rem 1.5rem 1.8rem;
+    }
+
+    .foto-info h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #074353;
+      margin-bottom: 0.4rem;
+    }
+
+    .foto-info p {
+      color: #2d5d6e;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+    }
+
+    .foto-info i {
+      color: #1d7d94;
+      width: 24px;
+    }
+
+    /* lege staat (geen foto's) */
+    .lege-staat {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #eef6fb;
+      border-radius: 2.5rem;
+      border: 2px dashed #b2d5ea;
+      margin: 2rem 0;
+    }
+
+    .lege-staat i {
+      font-size: 4rem;
+      color: #4e8da0;
+      margin-bottom: 1rem;
+    }
+
+    .lege-staat p {
+      font-size: 1.3rem;
+      color: #1d5668;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #436d7a;
+      border-top: 1px solid #cde1ec;
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header met logo en terugknop -->
+  <div class="header-flex">
+    <div class="logo-blok">
+      <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
+      <h1>Drone aan Huis</h1>
+    </div>
+    <a href="index.html" class="terug-knop"><i class="fas fa-arrow-left"></i> Terug naar home</a>
+  </div>
+
+  <!-- titel -->
+  <div class="project-titel">
+    <i class="fas fa-images" style="margin-right: 0.8rem;"></i> Onze projecten
+  </div>
+
+  <!-- korte uitleg -->
+  <div class="project-inleiding">
+    <p><i class="fas fa-camera-retro" style="margin-right: 0.6rem; color:#1d7d94;"></i> Een greep uit ons werk in de regio. Klik op een foto voor details.</p>
+  </div>
+
+  <!-- FOTOGRID - Vervang de afbeeldingen (jpg/png) in de src attributes met eigen bestanden.
+       Zorg dat de bestanden in dezelfde map staan als dit html-bestand, of pas het pad aan. 
+       Placeholder: icoon van FontAwesome als de afbeelding niet laadt. -->
+  <div class="foto-grid">
+    <!-- project 1 -->
+    <div class="foto-card">
+      <img src="project1.png" alt="Project Duinwoning";">
+      <div class="foto-info">
+        <h3>Duinwoning</h3>
+        <p><i class="fas fa-location-dot"></i> Noordwijk</p>
+        <p><i class="fas fa-calendar"></i> maart 2025</p>
+      </div>
+    </div>
+
+    <!-- project 2 -->
+    <div class="foto-card">
+      <img src="project2.png" alt="Project Bollenveld";">
+      <div class="foto-info">
+        <h3>Bollenveld</h3>
+        <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
+        <p><i class="fas fa-calendar"></i> april 2025</p>
+      </div>
+    </div>
+
+    <!-- project 3 -->
+    <div class="foto-card">
+      <img src="project3.png" alt="Project De Zilk";">
+      <div class="foto-info">
+        <h3>Park Zilk</h3>
+        <p><i class="fas fa-location-dot"></i> De Zilk</p>
+        <p><i class="fas fa-calendar"></i> februari 2025</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- opmerking voor de eigenaar (alleen zichtbaar in demo, maar geen echte placeholder) -->
+  <div class="lege-staat" style="background: #eaf3f9; border: 2px solid #b8d4e7;">
+    <i class="fas fa-upload"></i>
+    <p><strong>Vervang de voorbeeldfoto's</strong><br>Plaats je eigen afbeeldingen (jpg/png) in dezelfde map en pas de bestandsnamen in de src aan.</p>
+  </div>
+
+  <!-- footer (zelfde als index) -->
+  <footer>
+    <p>Drone aan Huis – Jim Schellekens</p>
+    <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
+  </footer>
+</div>
+</body>
+</html>
