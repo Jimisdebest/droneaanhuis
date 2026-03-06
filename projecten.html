@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drone aan Huis - Projecten</title>
-  <link rel="icon" href="logo.png" type="image/png" sizes="40x40">
+  <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
   <!-- Font Awesome voor iconen -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -115,6 +115,7 @@
       border: 1px solid #cde1ec;
       transition: all 0.25s ease;
       box-shadow: 0 6px 12px -6px rgba(0,80,100,0.2);
+      cursor: pointer; /* wijst op klikbaarheid */
     }
 
     .foto-card:hover {
@@ -157,33 +158,81 @@
       width: 24px;
     }
 
-    /* lege staat (geen foto's) */
-    .lege-staat {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: #eef6fb;
-      border-radius: 2.5rem;
-      border: 2px dashed #b2d5ea;
-      margin: 2rem 0;
-    }
-
-    .lege-staat i {
-      font-size: 4rem;
-      color: #4e8da0;
-      margin-bottom: 1rem;
-    }
-
-    .lege-staat p {
-      font-size: 1.3rem;
-      color: #1d5668;
-    }
-
     footer {
       margin-top: 3rem;
       text-align: center;
       color: #436d7a;
       border-top: 1px solid #cde1ec;
       padding-top: 2rem;
+    }
+
+    /* ----- LIGHTBOX (popup) ----- */
+    .lightbox {
+      display: none;                /* standaard verborgen */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.show {
+      display: flex;                /* getoond via klasse */
+    }
+
+    .lightbox-content {
+      max-width: 85vw;
+      max-height: 85vh;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+      border: 4px solid white;
+      background: white; /* voor als afbeelding niet laadt */
+    }
+
+    .sluit-knop {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      background: transparent;
+      border: none;
+      line-height: 1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .sluit-knop:hover {
+      color: #cde1ec;
+      transform: scale(1.1);
+    }
+
+    /* onderschrift in lightbox */
+    .lightbox-caption {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 500;
+      background: rgba(0, 50, 60, 0.6);
+      padding: 0.8rem 2rem;
+      backdrop-filter: blur(4px);
+      border-radius: 60px;
+      width: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      border: 1px solid #ffffff50;
     }
   </style>
 </head>
@@ -210,8 +259,8 @@
 
   <div class="foto-grid">
     <!-- project 1 -->
-    <div class="foto-card">
-      <img src="project1.png" alt="Project Duinwoning";">
+    <div class="foto-card" data-img="project1.png" data-title="Duinwoning · Noordwijk · maart 2025">
+      <img src="project1.png" alt="Project Duinwoning">
       <div class="foto-info">
         <h3>Duinwoning</h3>
         <p><i class="fas fa-location-dot"></i> Noordwijk</p>
@@ -220,8 +269,8 @@
     </div>
 
     <!-- project 2 -->
-    <div class="foto-card">
-      <img src="project2.png" alt="Project Bollenveld";">
+    <div class="foto-card" data-img="project2.png" data-title="Bollenveld · Noordwijkerhout · april 2025">
+      <img src="project2.png" alt="Project Bollenveld">
       <div class="foto-info">
         <h3>Bollenveld</h3>
         <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
@@ -230,22 +279,88 @@
     </div>
 
     <!-- project 3 -->
-    <div class="foto-card">
-      <img src="project3.png" alt="Project De Zilk";">
+    <div class="foto-card" data-img="project3.png" data-title="Park Zilk · De Zilk · februari 2025">
+      <img src="project3.png" alt="Project De Zilk">
       <div class="foto-info">
         <h3>Park Zilk</h3>
         <p><i class="fas fa-location-dot"></i> De Zilk</p>
         <p><i class="fas fa-calendar"></i> februari 2025</p>
       </div>
     </div>
-
   </div>
 
-  <!-- footer (zelfde als index) -->
+  <!-- footer -->
   <footer>
     <p>Drone aan Huis – Jim Schellekens</p>
     <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
   </footer>
 </div>
+
+<!-- LIGHTBOX (popup) structuur -->
+<div id="lightbox" class="lightbox">
+  <span class="sluit-knop" id="sluitLightbox"><i class="fas fa-times-circle"></i></span>
+  <img class="lightbox-content" id="lightbox-img" src="" alt="Vergrote weergave">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+  (function() {
+    // lichtbox elementen
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const sluitBtn = document.getElementById('sluitLightbox');
+
+    // alle fotokaarten selecteren
+    const fotos = document.querySelectorAll('.foto-card');
+
+    // bij klikken op een kaart openen we de lightbox
+    fotos.forEach(card => {
+      card.addEventListener('click', function(e) {
+        // data attributen uitlezen
+        const imgSrc = this.dataset.img;          // bijv. project1.png
+        const title = this.dataset.title;         // onderschrift
+
+        if (imgSrc) {
+          lightboxImg.src = imgSrc;
+          lightboxCaption.textContent = title || '';  // indien geen titel, leeg
+          lightbox.classList.add('show');
+        } else {
+          // fallback: probeer de src van de img te pakken (voor het geval dat)
+          const innerImg = this.querySelector('img');
+          if (innerImg && innerImg.src) {
+            lightboxImg.src = innerImg.src;
+            // maak caption van h3 + locatie (simpel)
+            const h3 = this.querySelector('h3')?.innerText || 'Project';
+            lightboxCaption.textContent = h3;
+            lightbox.classList.add('show');
+          }
+        }
+      });
+    });
+
+    // sluiten via knop
+    sluitBtn.addEventListener('click', function() {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';  // even leegmaken (niet noodzakelijk maar netjes)
+    });
+
+    // sluiten als je buiten de afbeelding klikt (op de donkere achtergrond)
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {   // klik precies op de overlay (niet op img of knop)
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+      }
+    });
+
+    // ESC toets om te sluiten
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+        lightbox.classList.remove('show');
+        lightboxImg.src = '';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
