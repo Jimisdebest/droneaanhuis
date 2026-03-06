@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drone aan Huis</title>
   <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
-  <!-- Font Awesome (KIT uitgezet, gebruik de gratis CDN met correcte versie) -->
+  <!-- Font Awesome (correcte CDN voor iconen) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -65,7 +65,15 @@
       display: none;
     }
 
-    /* regio tag aangepast: alleen icoon + "Regio Bollenstreek" */
+    /* regio tag + knop naast elkaar */
+    .regio-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
     .regio-tag {
       background: #eef3f7;
       border-radius: 60px;
@@ -74,8 +82,32 @@
       align-items: center;
       gap: 0.6rem;
       font-size: 1.2rem;
-      margin-bottom: 2rem;
       border: 1px solid #d0e2ed;
+    }
+
+    .projecten-knop {
+      background: transparent;
+      border: 2px solid #0b5e74;
+      color: #0b5e74;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;  /* voor als we <a> gebruiken */
+    }
+
+    .projecten-knop:hover {
+      background: #0b5e74;
+      color: white;
+    }
+
+    .projecten-knop i {
+      font-size: 1.1rem;
     }
 
     /* introductie zonder e-mail */
@@ -360,9 +392,15 @@
     <!-- badge met naam volledig weg -->
   </div>
 
-  <!-- Regio tag: alleen icoon + Regio Bollenstreek, geen plaatsnamen en geen 4K meer -->
-  <div class="regio-tag">
-    <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Regio Bollenstreek
+  <!-- Nieuwe rij met regio-tag én knop "Bekijk onze projecten" -->
+  <div class="regio-row">
+    <div class="regio-tag">
+      <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Regio Bollenstreek
+    </div>
+    <!-- knop die linkt naar projecten.html -->
+    <a href="projecten.html" class="projecten-knop">
+      <i class="fas fa-images"></i> Bekijk onze projecten
+    </a>
   </div>
 
   <!-- introductie zonder e-mailadres -->
