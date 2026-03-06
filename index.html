@@ -378,18 +378,18 @@
       <h1>Drone aan Huis</h1>
     </div>
     <div class="naam-badge">
-      <i class="far fa-smile"></i> Jim Schellekens
-    </div>
+    Jim Schellekens
+</div>
   </div>
 
   <div class="regio-tag">
-    <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
+    <i class="fa-solid map-marker-alt" style="color:#1c6d82;"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
     <span style="margin-left:0.7rem;"><i class="fa-solid fa-camera"></i> 4K</span>
   </div>
 
   <!-- introductie (neutraal) -->
   <div class="intro-box">
-    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per sessie (dat is de maximale vliegtijd van mijn drone).</p>
+    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per keer (dat is de maximale vliegtijd van mijn drone).</p>
     <p style="margin-top:1rem;"><i class="fa-solid fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">Jimschel1@outlook.com</a></p>
   </div>
 
@@ -403,10 +403,9 @@
       <h3>Basis</h3>
       <div class="pakket-prijs">€10 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
-        <li><i class="fas fa-video"></i> 4K videos</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> Max 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
         <li><i class="fas fa-camera"></i> 10 foto's</li>
-        <li><i class="fas fa-drone"></i> 1 drone</li>
       </ul>
       <button class="kies-knop pakket-kies" data-pakket="Basis"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
@@ -415,10 +414,9 @@
       <h3>Plus</h3>
       <div class="pakket-prijs">€15 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
-        <li><i class="fas fa-video"></i> 4K videos</li>
-        <li><i class="fas fa-images"></i> 20 foto's bewerkt</li>
-        <li><i class="fas fa-drone"></i> 1 drone</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> Max 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
+        <li><i class="fas fa-images"></i> 20 foto's</li>
       </ul>
       <button class="kies-knop pakket-kies" data-pakket="Plus"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
@@ -427,10 +425,10 @@
       <h3>Premium</h3>
       <div class="pakket-prijs">€20 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> 15 min vliegen</li>
-        <li><i class="fas fa-video"></i> 4K + slowmotion</li>
+        <li><i class="fa-solid fa-alarm-clock"></i> 2 x 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
         <li><i class="fas fa-crown"></i> extra aandacht</li>
-        <li><i class="fas fa-battery-full"></i> extra accu</li>
+        <li><i class="fas fa-battery-full"></i> 30 foto's</li>
       </ul>
       <button class="kies-knop pakket-kies" data-pakket="Premium"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
     </div>
@@ -446,34 +444,34 @@
         <i class="fas fa-ban"></i>
         <h3>Geen montage</h3>
         <div class="montage-prijs">€0</div>
-        <p style="color:#2d5d6e;">Je krijgt de ruwe beelden</p>
+        <p style="color:#2d5d6e;">Je krijgt de losse beelden</p>
       </div>
       <!-- montage basis 2 euro -->
       <div class="montage-optie-card" data-montage="Videomontage Basis" data-prijs="2">
         <i class="fas fa-video"></i>
         <h3>Basis montage</h3>
         <div class="montage-prijs">€2</div>
-        <p style="color:#2d5d6e;">Eenvoudige montage, 1 minuut</p>
+        <p style="color:#2d5d6e;">Eenvoudige montage, alle foto's en video's achter elkaar</p>
       </div>
       <!-- montage premium 5 euro -->
       <div class="montage-optie-card" data-montage="Videomontage Premium" data-prijs="5">
         <i class="fas fa-star"></i>
         <h3>Premium montage</h3>
         <div class="montage-prijs">€5</div>
-        <p style="color:#2d5d6e;">Montage met effecten, 2-3 min</p>
+        <p style="color:#2d5d6e;">Montage met effecten en bewerkte foto's</p>
       </div>
     </div>
     <!-- verborgen input voor montagekeuze -->
     <input type="hidden" id="montageKeuze" value="Geen montage">
     <div style="text-align:center; margin-top:1.5rem;">
-      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder naar uw gegevens</button>
+      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder -></button>
     </div>
   </div>
 
   <!-- formulier sectie (eerst verborgen) -->
   <div id="formulierSectie" class="form-blok hidden">
     <h2>Uw gegevens</h2>
-    <div class="gekozen-pakket" id="gekozenPakketLabel">Pakket: Basis</div>
+    <div class="gekozen-pakket" id="gekozenPakketLabel">U heeft Pakket: Basis</div>
     <div style="margin-bottom:1.2rem;" id="gekozenMontageLabel"></div>
 
     <form id="boekForm" action="https://formspree.io/f/xnjgavrv" method="POST">
@@ -494,7 +492,7 @@
         <input type="tel" name="telefoon" placeholder="06 12345678">
       </div>
       <div class="form-groep">
-        <label>Plaats / woonplaats</label>
+        <label>Plaats waar moet worden gefilmd</label>
         <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
       </div>
       <!-- nieuw datumveld -->
@@ -503,15 +501,14 @@
         <input type="date" name="datum" required>
       </div>
       <div class="form-groep">
-        <label>Opmerkingen (bijv. tijd)</label>
+        <label>Opmerkingen (speciaal pakket)</label>
         <input type="text" name="opmerking" placeholder="eventueel extra info">
       </div>
       <button type="submit" class="verstuur-knop"><i class="fas fa-paper-plane"></i> Verstuur aanvraag</button>
     </form>
-    <p style="margin-top:1.5rem;">of <i class="far fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#115f72;">mail direct</a></p>
   </div>
 
-  <!-- bedankbericht (eerst verborgen) -->
+  <!-- bedankbericht -->
   <div id="bedankBericht" class="bedank-box hidden">
     <i class="fas fa-check-circle" style="font-size:3rem; color:#2d7a64;"></i>
     <p>Bedankt voor het invullen van het formulier. We nemen zo snel mogelijk contact met u op.</p>
@@ -519,9 +516,8 @@
 
   <!-- footer -->
   <footer>
-    <p>Drone aan Huis – Jim Schellekens · <a href="mailto:jimschel1@outlook.com" style="color:#0a4b5c;">jimschel1@outlook.com</a></p>
-    <p>Betaling: contant bij aankomst, voor het vliegen. Max 15 minuten vliegen.</p>
-    <p style="margin-top:0.5rem;">Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
+    <p>Drone aan Huis – Jim Schellekens</p>
+    <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
   </footer>
 </div>
 
@@ -607,10 +603,10 @@
           bedankBox.classList.remove('hidden');
           bedankBox.scrollIntoView({ behavior: 'smooth' });
         } else {
-          alert('Er ging iets mis. Stuur een mail naar jimschel1@outlook.com');
+          alert('Er ging iets mis. Probeer het later opnieuw.');
         }
       })
-      .catch(() => alert('Netwerkfout. Mail naar jimschel1@outlook.com'));
+      .catch(() => alert('Netwerkfout.'));
     });
   })();
 </script>
