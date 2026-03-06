@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drone aan Huis</title>
   <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
-  <!-- Font Awesome (voor enkele icoontjes) -->
+  <!-- Font Awesome (KIT uitgezet, gebruik de gratis CDN met correcte versie) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -48,12 +48,11 @@
     }
 
     .logo-img {
-      width: 70px;
+      width: 120px;        /* logo groter */
       height: auto;
-      display: block; /* normaal getoond */
+      display: block;
     }
 
-    /* als logo niet laadt, wordt ie niet getoond en blijft tekst over */
     .logo-blok h1 {
       font-size: 2.2rem;
       font-weight: 600;
@@ -61,17 +60,12 @@
       color: #0a4b5c;
     }
 
+    /* naam-badge verwijderd */
     .naam-badge {
-      background: #e4eff5;
-      padding: 0.5rem 1.8rem;
-      border-radius: 60px;
-      font-weight: 500;
-      font-size: 1.3rem;
-      color: #0a4b5c;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      display: none;
     }
 
-    /* regio tag */
+    /* regio tag aangepast: alleen icoon + "Regio Bollenstreek" */
     .regio-tag {
       background: #eef3f7;
       border-radius: 60px;
@@ -84,7 +78,7 @@
       border: 1px solid #d0e2ed;
     }
 
-    /* intro */
+    /* introductie zonder e-mail */
     .intro-box {
       background: #f9fdfe;
       border-radius: 2rem;
@@ -300,7 +294,6 @@
       box-shadow: 0 0 0 3px rgba(10, 111, 135, 0.2);
     }
 
-    /* datum veld specifiek */
     .form-groep input[type="date"] {
       font-family: inherit;
       color: #115a6b;
@@ -335,19 +328,6 @@
       font-size: 1.6rem;
     }
 
-    .mail-link {
-      background: #ecf3f7;
-      border-radius: 60px;
-      padding: 0.3rem 1.8rem;
-      display: inline-block;
-    }
-
-    .mail-link a {
-      text-decoration: none;
-      color: #115f72;
-      font-weight: 500;
-    }
-
     footer {
       margin-top: 2.5rem;
       text-align: center;
@@ -377,33 +357,30 @@
       <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
       <h1>Drone aan Huis</h1>
     </div>
-    <div class="naam-badge">
-    Jim Schellekens
-</div>
+    <!-- badge met naam volledig weg -->
   </div>
 
+  <!-- Regio tag: alleen icoon + Regio Bollenstreek, geen plaatsnamen en geen 4K meer -->
   <div class="regio-tag">
-    <i class="fa-solid map-marker-alt" style="color:#1c6d82;"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
-    <span style="margin-left:0.7rem;"><i class="fa-solid fa-camera"></i> 4K</span>
+    <i class="fas fa-map-marker-alt" style="color:#1c6d82;"></i> Regio Bollenstreek
   </div>
 
-  <!-- introductie (neutraal) -->
+  <!-- introductie zonder e-mailadres -->
   <div class="intro-box">
     <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. Maximaal 15 minuten vliegen per keer (dat is de maximale vliegtijd van mijn drone).</p>
-    <p style="margin-top:1rem;"><i class="fa-solid fa-envelope"></i> <a href="mailto:jimschel1@outlook.com" style="color:#0f5b70;">Jimschel1@outlook.com</a></p>
   </div>
 
   <!-- titel pakketten -->
   <div class="tussentitel">Kies je pakket</div>
 
-  <!-- pakketten grid -->
+  <!-- pakketten grid (iconen werken correct) -->
   <div class="pakket-grid">
     <!-- basis -->
     <div class="pakket-card" data-pakketnaam="Basis">
       <h3>Basis</h3>
       <div class="pakket-prijs">€10 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> Max 15 min vliegen</li>
+        <li><i class="fas fa-clock"></i> Max 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
         <li><i class="fas fa-camera"></i> 10 foto's</li>
       </ul>
@@ -414,7 +391,7 @@
       <h3>Plus</h3>
       <div class="pakket-prijs">€15 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> Max 15 min vliegen</li>
+        <li><i class="fas fa-clock"></i> Max 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
         <li><i class="fas fa-images"></i> 20 foto's</li>
       </ul>
@@ -425,7 +402,7 @@
       <h3>Premium</h3>
       <div class="pakket-prijs">€20 <small>per keer</small></div>
       <ul class="pakket-lijst">
-        <li><i class="fa-solid fa-alarm-clock"></i> 2 x 15 min vliegen</li>
+        <li><i class="fas fa-clock"></i> 2 x 15 min vliegen</li>
         <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
         <li><i class="fas fa-crown"></i> extra aandacht</li>
         <li><i class="fas fa-battery-full"></i> 30 foto's</li>
@@ -495,7 +472,7 @@
         <label>Plaats waar moet worden gefilmd</label>
         <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
       </div>
-      <!-- nieuw datumveld -->
+      <!-- datumveld -->
       <div class="form-groep">
         <label>Kies een datum</label>
         <input type="date" name="datum" required>
