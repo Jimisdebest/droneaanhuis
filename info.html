@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informatie · Drone aan Huis</title>
+  <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+  <!-- Font Awesome zelfde versie -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f9fd;
+      color: #1a3636;
+      line-height: 1.5;
+      padding: 1.2rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -8px rgba(0, 65, 80, 0.15);
+      padding: 2rem 2.5rem;
+    }
+
+    /* header in zelfde stijl */
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-blok {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      width: 90px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-blok h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #0a4b5c;
+    }
+
+    .terug-knop {
+      background: transparent;
+      border: 2px solid #0b5e74;
+      color: #0b5e74;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .terug-knop:hover {
+      background: #0b5e74;
+      color: white;
+    }
+
+    /* info pagina specifiek */
+    .info-blok {
+      background: #f9fdfe;
+      border-radius: 2rem;
+      padding: 2.5rem 2.5rem;
+      margin: 2rem 0 1.8rem;
+      border: 1px solid #daeef7;
+      box-shadow: 0 8px 18px -8px rgba(0,80,100,0.1);
+    }
+
+    .info-blok h2 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #024353;
+      margin-bottom: 1.8rem;
+      border-left: 6px solid #479f89;
+      padding-left: 1.3rem;
+    }
+
+    .info-blok h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 2rem 0 0.8rem;
+      color: #115f72;
+    }
+
+    .info-blok p {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: #1f4857;
+    }
+
+    .info-blok ul {
+      margin: 1rem 0 1.5rem 1.8rem;
+    }
+
+    .info-blok li {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .info-blok li i {
+      color: #21758b;
+      width: 28px;
+      font-size: 1.3rem;
+    }
+
+    /* Drone foto sectie - alleen de foto in een border */
+    .drone-foto {
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 2.5rem;
+      border: 4px solid #479f89;  /* opvallende groene border */
+      box-shadow: 0 15px 25px -10px rgba(30, 100, 90, 0.3);
+    }
+
+    .drone-foto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 24px -10px #0b5e74;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Geen tekst meer onder de foto */
+
+    footer {
+      margin-top: 2.8rem;
+      text-align: center;
+      color: #436d7a;
+      border-top: 1px solid #cde1ec;
+      padding-top: 1.8rem;
+      font-size: 1.1rem;
+    }
+
+    .emoji-groot {
+      font-size: 2.2rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header met terugknop (zelfde familie) -->
+  <div class="header-flex">
+    <div class="logo-blok">
+      <img src="logo.png" alt="Drone aan Huis" class="logo-img" onerror="this.style.display='none'">
+      <h1>Drone aan Huis</h1>
+    </div>
+    <a href="index.html" class="terug-knop"><i class="fas fa-arrow-left"></i> Terug naar home</a>
+  </div>
+
+  <!-- INFO PAGINA - ALLEEN FAQ EN DRONE-FOTO -->
+  <div class="info-blok">
+    <h2><i class="fas fa-circle-info" style="margin-right: 0.8rem;"></i> Informatie & veelgestelde vragen</h2>
+    
+    <!-- FAQ - aangepast volgens jouw tekst -->
+    <h3><i class="fas fa-question-circle"></i> Veelgestelde vragen (FAQ)</h3>
+    
+    <p><strong>❓ Wat gebeurt er bij slecht weer?</strong><br>
+    Bij slecht weer kan mijn drone niet vliegen en zijn er ook geen mooie foto's te maken. We spreken dan gewoon een andere dag af.</p>
+    
+    <p><strong>❓ Krijg ik alle beelden?</strong><br>
+    Ja, je krijgt alle beelden op hoge kwaliteit. Je ontvangt een downloadlink met de ruwe foto's en video's.</p>
+    
+    <p><strong>❓ Hoe spreken we het tijdstip af?</strong><br>
+    Nadat je een pakket hebt gekozen en het formulier hebt ingestuurd, neem ik contact met je op over het exacte tijdstip. Ik stem het graag met je af.</p>
+    
+    <p><strong>❓ Hoe lang van tevoren moet ik boeken?</strong><br>
+    Minimaal 1 dag van tevoren, dan kan ik mijn drone opladen en zorg dat alles klaar staat.</p>
+
+    <p><strong>❓ Met welke drone kom je?</strong><br>
+    Ik kom met de <strong>DJI Mini 4K</strong>, die je hieronder op het plaatje ziet. Ik kan hiermee maximaal een half uurtje vliegen. Hij kan tegen windkracht 5, maar daarmee vlieg ik liever niet.</p>
+  </div>
+
+  <!-- Drone foto in een opvallende border - alleen de foto, geen tekst -->
+  <div class="drone-foto">
+    <img src="DJIMini4K.png" alt="DJI Mini 4K drone" onerror="this.style.display='none'">
+    <!-- Alle tekst onder de foto is verwijderd -->
+  </div>
+
+  <!-- footer met aangepaste contactgegevens -->
+  <footer>
+    <p>Drone aan Huis – Jim Schellekens</p>
+    <p style="margin-top:0.5rem;">📧 Jimschel1@outlook.com</p>
+    <p style="margin-top:0.5rem;">Noordwijk · Noordwijkerhout · De Zilk</p>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    console.log('info.html geladen – alleen de foto, geen onderschrift');
+  })();
+</script>
+</body>
+</html>
