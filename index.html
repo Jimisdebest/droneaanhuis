@@ -65,7 +65,7 @@
       display: none;
     }
 
-    /* regio tag + knop naast elkaar */
+    /* regio tag + knoppen naast elkaar */
     .regio-row {
       display: flex;
       flex-wrap: wrap;
@@ -110,7 +110,7 @@
       font-size: 1.1rem;
     }
 
-    /* introductie zonder e-mail */
+    /* introductie zonder e-mail, maar met info knop */
     .intro-box {
       background: #f9fdfe;
       border-radius: 2rem;
@@ -119,11 +119,46 @@
       border: 1px solid #daeef7;
       box-shadow: 0 8px 18px -8px rgba(0,80,100,0.1);
       transition: 0.2s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
 
     .intro-box p {
       font-size: 1.3rem;
-      max-width: 850px;
+      max-width: 750px;
+    }
+
+    /* Nieuwe stijl voor de info knop */
+    .info-knop {
+      background: #ffffff;
+      border: 2px solid #479f89;
+      color: #1d6b5c;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 0.8rem 2.2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 6px 12px rgba(0,100,80,0.1);
+    }
+
+    .info-knop i {
+      font-size: 1.4rem;
+    }
+
+    .info-knop:hover {
+      background: #479f89;
+      color: white;
+      border-color: #479f89;
+      transform: scale(1.02);
     }
 
     /* pakketten grid */
@@ -392,15 +427,21 @@
     <!-- badge met naam volledig weg -->
   </div>
 
+  <!-- regio rij met projectenknop -->
+  <div class="regio-row">
+    <div class="regio-tag">
+      <i class="fas fa-map-pin"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
+    </div>
     <!-- knop die linkt naar projecten.html -->
     <a href="projecten" class="projecten-knop">
       <i class="fas fa-images"></i> Bekijk onze projecten
     </a>
   </div>
 
-  <!-- introductie zonder e-mailadres -->
+  <!-- introductie zonder e-mailadres, met de nieuwe info knop -->
   <div class="intro-box">
     <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. U kunt altijd zelf kiezen waar en hoe ik vlieg.</p>
+    <a href="info.html" class="info-knop"><i class="fas fa-circle-info"></i> Meer informatie</a>
   </div>
 
   <!-- titel pakketten -->
