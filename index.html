@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drone aan Huis</title>
   <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
-  <!-- Font Awesome (correcte CDN voor iconen) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -424,21 +423,17 @@
       <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
       <h1>Drone aan Huis</h1>
     </div>
-    <!-- badge met naam volledig weg -->
   </div>
 
-  <!-- regio rij met projectenknop -->
   <div class="regio-row">
     <div class="regio-tag">
       <i class="fas fa-map-pin"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
     </div>
-    <!-- knop die linkt naar projecten.html -->
     <a href="projecten" class="projecten-knop">
       <i class="fas fa-images"></i> Bekijk onze projecten
     </a>
   </div>
 
-  <!-- introductie zonder e-mailadres, met de nieuwe info knop -->
   <div class="intro-box">
     <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. U kunt altijd zelf kiezen waar en hoe ik vlieg.</p>
     <a href="info.html" class="info-knop"><i class="fas fa-circle-info"></i> Meer informatie</a>
@@ -484,26 +479,26 @@
     </div>
   </div>
 
-  <!-- montageblok -->
+  <!-- montage -->
   <div id="montageSectie" class="montage-blok hidden">
     <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
     <div style="font-size:1.2rem; margin-bottom:1rem;" id="toonGekozenPakket"></div>
     <div class="montage-flex">
-      <!-- geen montage -->
+  
       <div class="montage-optie-card" data-montage="Geen montage" data-prijs="0">
         <i class="fas fa-ban"></i>
         <h3>Geen montage</h3>
         <div class="montage-prijs">€0</div>
         <p style="color:#2d5d6e;">Je krijgt de losse beelden</p>
       </div>
-      <!-- montage basis 2 euro -->
+
       <div class="montage-optie-card" data-montage="Videomontage Basis" data-prijs="2">
         <i class="fas fa-video"></i>
         <h3>Basis montage</h3>
         <div class="montage-prijs">€2</div>
         <p style="color:#2d5d6e;">Eenvoudige montage, alle foto's en video's achter elkaar</p>
       </div>
-      <!-- montage premium 5 euro -->
+
       <div class="montage-optie-card" data-montage="Videomontage Premium" data-prijs="5">
         <i class="fas fa-star"></i>
         <h3>Premium montage</h3>
@@ -514,7 +509,7 @@
     <!-- verborgen input voor montagekeuze -->
     <input type="hidden" id="montageKeuze" value="Geen montage">
     <div style="text-align:center; margin-top:1.5rem;">
-      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder -></button>
+      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder</button>
     </div>
   </div>
 
