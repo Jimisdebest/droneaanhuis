@@ -2,9 +2,11 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drone aan Huis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Drone aan Huis · Jim Schellekens</title>
   <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+  <!-- Google Fonts + moderne sans (zelfde als persoonlijke site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,18 +17,18 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f4f9fd;
-      color: #1a3636;
+      background: #fafcff;
+      color: #111827;
       line-height: 1.5;
-      padding: 1.2rem;
+      padding: 1.5rem;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       background: #ffffff;
       border-radius: 2rem;
-      box-shadow: 0 20px 35px -8px rgba(0, 65, 80, 0.15);
+      box-shadow: 0 20px 35px -12px rgba(0, 65, 80, 0.12);
       padding: 2rem 2rem;
     }
 
@@ -47,16 +49,19 @@
     }
 
     .logo-img {
-      width: 120px;        /* logo groter */
+      width: 120px;
       height: auto;
       display: block;
     }
 
     .logo-blok h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #0a4b5c;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0B2B40, #1C6E8F);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     /* naam-badge verwijderd */
@@ -64,7 +69,7 @@
       display: none;
     }
 
-    /* regio tag + knoppen naast elkaar */
+    /* regio row */
     .regio-row {
       display: flex;
       flex-wrap: wrap;
@@ -76,47 +81,53 @@
     .regio-tag {
       background: #eef3f7;
       border-radius: 60px;
-      padding: 0.5rem 1.8rem;
+      padding: 0.6rem 1.8rem;
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1f5e72;
       border: 1px solid #d0e2ed;
+    }
+
+    .regio-tag i {
+      color: #1C6E8F;
     }
 
     .projecten-knop {
       background: transparent;
-      border: 2px solid #0b5e74;
-      color: #0b5e74;
-      font-size: 1.2rem;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1rem;
       font-weight: 600;
-      padding: 0.5rem 1.8rem;
+      padding: 0.6rem 1.8rem;
       border-radius: 60px;
       cursor: pointer;
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      text-decoration: none;  /* voor als we <a> gebruiken */
+      text-decoration: none;
     }
 
     .projecten-knop:hover {
-      background: #0b5e74;
+      background: #1C6E8F;
       color: white;
     }
 
     .projecten-knop i {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
 
-    /* introductie zonder e-mail, maar met info knop */
+    /* intro box */
     .intro-box {
       background: #f9fdfe;
       border-radius: 2rem;
       padding: 2rem 2.2rem;
       margin: 2rem 0 2.5rem;
-      border: 1px solid #daeef7;
-      box-shadow: 0 8px 18px -8px rgba(0,80,100,0.1);
+      border: 1px solid #e2edf2;
+      box-shadow: 0 8px 18px -8px rgba(28,110,143,0.08);
       transition: 0.2s;
       display: flex;
       flex-wrap: wrap;
@@ -126,18 +137,18 @@
     }
 
     .intro-box p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       max-width: 750px;
+      color: #2c3e44;
     }
 
-    /* Nieuwe stijl voor de info knop */
     .info-knop {
       background: #ffffff;
-      border: 2px solid #479f89;
-      color: #1d6b5c;
-      font-size: 1.3rem;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1.1rem;
       font-weight: 600;
-      padding: 0.8rem 2.2rem;
+      padding: 0.8rem 2rem;
       border-radius: 60px;
       cursor: pointer;
       transition: 0.2s;
@@ -146,71 +157,74 @@
       gap: 0.8rem;
       text-decoration: none;
       white-space: nowrap;
-      box-shadow: 0 6px 12px rgba(0,100,80,0.1);
+      box-shadow: 0 4px 10px rgba(28,110,143,0.08);
     }
 
     .info-knop i {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
 
     .info-knop:hover {
-      background: #479f89;
+      background: #1C6E8F;
       color: white;
-      border-color: #479f89;
-      transform: scale(1.02);
+      border-color: #1C6E8F;
+      transform: translateY(-2px);
     }
 
-    /* pakketten grid */
+    /* titels */
     .tussentitel {
       font-size: 2rem;
-      font-weight: 500;
-      margin: 2.5rem 0 1rem;
-      color: #125e72;
-      border-left: 6px solid #88c2d9;
+      font-weight: 800;
+      margin: 2.5rem 0 1.5rem;
+      color: #0B2B40;
+      border-left: 5px solid #1C6E8F;
       padding-left: 1.3rem;
+      letter-spacing: -0.01em;
     }
 
+    /* pakket grid */
     .pakket-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin: 2rem 0 2rem;
     }
 
     .pakket-card {
-      background: #f8fcff;
-      border-radius: 1.8rem;
-      padding: 1.8rem 1.5rem 1.5rem;
-      border: 1px solid #cde1ec;
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 1.8rem 1.5rem 1.8rem;
+      border: 1px solid #eef2f8;
       transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .pakket-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 25px -10px #abc9db;
-      border-color: #9ac2d9;
+      box-shadow: 0 20px 30px -12px rgba(28,110,143,0.15);
+      border-color: #cde3ec;
     }
 
     .pakket-card h3 {
-      font-size: 2rem;
-      font-weight: 500;
-      color: #074353;
-      margin-bottom: 0.8rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+      margin-bottom: 0.5rem;
     }
 
     .pakket-prijs {
-      font-size: 2.5rem;
-      font-weight: 500;
-      color: #0b4f5e;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1C6E8F;
       margin: 0.5rem 0 1rem;
-      border-bottom: 2px dotted #bddbea;
-      padding-bottom: 0.5rem;
+      border-bottom: 2px dotted #d4e2ec;
+      padding-bottom: 0.6rem;
     }
 
     .pakket-prijs small {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #4f6f7c;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #5f7f8c;
     }
 
     .pakket-lijst {
@@ -222,20 +236,22 @@
       margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1.1rem;
+      gap: 10px;
+      font-size: 1rem;
+      color: #2c3e44;
     }
 
     .pakket-lijst i {
-      color: #1d7d94;
+      color: #1C6E8F;
       width: 24px;
+      font-size: 1.1rem;
     }
 
     .kies-knop {
       background: transparent;
-      border: 2px solid #0b5e74;
-      color: #0b5e74;
-      font-size: 1.2rem;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1rem;
       font-weight: 600;
       padding: 0.8rem 1.2rem;
       border-radius: 50px;
@@ -250,26 +266,32 @@
     }
 
     .kies-knop:hover {
-      background: #0b5e74;
+      background: #1C6E8F;
       color: white;
     }
 
     /* montage blok */
     .montage-blok {
-      background: #eef6fb;
+      background: #f9fefc;
       border-radius: 2.5rem;
       padding: 2.5rem 2.2rem;
       margin: 2.5rem 0 2rem;
-      border: 2px solid #b2d5ea;
+      border: 1px solid #e2edf2;
       scroll-margin-top: 30px;
       transition: 0.3s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
     }
 
     .montage-blok h2 {
-      font-size: 2rem;
-      font-weight: 500;
-      color: #024353;
-      margin-bottom: 1.8rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+      margin-bottom: 1.5rem;
+    }
+
+    .montage-blok h2 i {
+      color: #1C6E8F;
+      margin-right: 0.5rem;
     }
 
     .montage-flex {
@@ -284,52 +306,69 @@
       background: white;
       border-radius: 2rem;
       padding: 1.8rem 2rem;
-      flex: 1 1 240px;
-      border: 2px solid #bfddec;
+      flex: 1 1 220px;
+      border: 2px solid #e2edf2;
       text-align: center;
       cursor: pointer;
       transition: 0.2s;
     }
 
     .montage-optie-card.selected {
-      border-color: #3b8ba0;
-      background: #e0f0f7;
-      box-shadow: 0 0 0 3px rgba(27, 119, 142, 0.3);
+      border-color: #1C6E8F;
+      background: #f0f9ff;
+      box-shadow: 0 8px 20px -8px rgba(28,110,143,0.2);
     }
 
     .montage-optie-card h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 0.8rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0B2B40;
     }
 
     .montage-prijs {
-      font-size: 2.2rem;
-      font-weight: 500;
-      color: #104c5c;
-      margin: 1rem 0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1C6E8F;
+      margin: 0.8rem 0;
     }
 
     .montage-optie-card i {
       font-size: 2rem;
-      color: #21758b;
+      color: #1C6E8F;
       margin-bottom: 0.5rem;
+    }
+
+    .montage-optie-card p {
+      font-size: 0.9rem;
+      color: #5a6e7a;
     }
 
     /* formulier */
     .form-blok {
-      background: #f5fafd;
+      background: #f9fefc;
       border-radius: 2.5rem;
       padding: 2.5rem 2.2rem;
       margin: 2rem 0 2.5rem;
-      border: 1px solid #c8e2f0;
+      border: 1px solid #e2edf2;
     }
 
     .form-blok h2 {
-      font-size: 2rem;
-      font-weight: 500;
-      color: #024353;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
       margin-bottom: 1rem;
+    }
+
+    .gekozen-pakket {
+      background: #eef3f7;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.5rem 0 1rem;
+      color: #1C6E8F;
     }
 
     .form-groep {
@@ -338,81 +377,110 @@
 
     .form-groep label {
       display: block;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-      font-size: 1.1rem;
-      color: #115a6b;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #1f4a5c;
     }
 
     .form-groep input {
       width: 100%;
-      padding: 1rem 1.4rem;
-      font-size: 1.1rem;
-      border: 2px solid #d6e9f2;
+      padding: 0.9rem 1.4rem;
+      font-size: 1rem;
+      border: 2px solid #e2edf2;
       border-radius: 60px;
       background: white;
       transition: 0.2s;
+      font-family: 'Inter', sans-serif;
     }
 
     .form-groep input:focus {
       outline: none;
-      border-color: #0b798f;
-      box-shadow: 0 0 0 3px rgba(10, 111, 135, 0.2);
+      border-color: #1C6E8F;
+      box-shadow: 0 0 0 3px rgba(28,110,143,0.15);
     }
 
     .form-groep input[type="date"] {
       font-family: inherit;
-      color: #115a6b;
+      color: #1f4a5c;
     }
 
     .verstuur-knop {
-      background: #115f72;
+      background: #1C6E8F;
       color: white;
       border: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      padding: 1.1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
       border-radius: 60px;
       width: 100%;
       cursor: pointer;
       transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
     }
 
     .verstuur-knop:hover {
-      background: #0b4757;
-      transform: scale(1.01);
+      background: #0f5775;
+      transform: translateY(-2px);
     }
 
     /* bedankbericht */
     .bedank-box {
-      background: #daf1e7;
+      background: #eef7f2;
       border-radius: 2.5rem;
       padding: 2.5rem;
       text-align: center;
       margin: 2rem 0;
-      border: 3px solid #479f89;
-      font-size: 1.6rem;
+      border: 2px solid #bdd9cf;
+      font-size: 1.4rem;
     }
 
+    .bedank-box i {
+      color: #1C6E8F;
+      margin-bottom: 1rem;
+    }
+
+    /* footer */
     footer {
       margin-top: 2.5rem;
       text-align: center;
-      color: #436d7a;
-      border-top: 1px solid #cde1ec;
+      color: #6c7f96;
+      border-top: 1px solid #e2edf2;
       padding-top: 2rem;
+      font-size: 0.85rem;
     }
 
     .hidden {
       display: none;
     }
 
-    .gekozen-pakket {
-      background: #c6e2f0;
-      padding: 0.3rem 2rem;
-      border-radius: 60px;
-      display: inline-block;
-      font-size: 1.3rem;
-      margin: 0.5rem 0 1.5rem;
+    /* responsive */
+    @media (max-width: 800px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .intro-box {
+        flex-direction: column;
+        text-align: center;
+      }
+      .intro-box p {
+        text-align: left;
+      }
+      .tussentitel {
+        font-size: 1.8rem;
+      }
+      .montage-flex {
+        flex-direction: column;
+      }
+      .montage-optie-card {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -442,7 +510,7 @@
   <!-- titel pakketten -->
   <div class="tussentitel">Kies je pakket</div>
 
-  <!-- pakketten grid (iconen werken correct) -->
+  <!-- pakketten grid -->
   <div class="pakket-grid">
     <!-- basis -->
     <div class="pakket-card" data-pakketnaam="Basis">
@@ -479,26 +547,23 @@
     </div>
   </div>
 
-  <!-- montage -->
+  <!-- montage sectie -->
   <div id="montageSectie" class="montage-blok hidden">
     <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
-    <div style="font-size:1.2rem; margin-bottom:1rem;" id="toonGekozenPakket"></div>
+    <div style="font-size:1.1rem; margin-bottom:1rem; color:#2c5f72;" id="toonGekozenPakket"></div>
     <div class="montage-flex">
-  
       <div class="montage-optie-card" data-montage="Geen montage" data-prijs="0">
         <i class="fas fa-ban"></i>
         <h3>Geen montage</h3>
         <div class="montage-prijs">€0</div>
         <p style="color:#2d5d6e;">Je krijgt de losse beelden</p>
       </div>
-
       <div class="montage-optie-card" data-montage="Videomontage Basis" data-prijs="2">
         <i class="fas fa-video"></i>
         <h3>Basis montage</h3>
         <div class="montage-prijs">€2</div>
         <p style="color:#2d5d6e;">Eenvoudige montage, alle foto's en video's achter elkaar</p>
       </div>
-
       <div class="montage-optie-card" data-montage="Videomontage Premium" data-prijs="5">
         <i class="fas fa-star"></i>
         <h3>Premium montage</h3>
@@ -506,21 +571,19 @@
         <p style="color:#2d5d6e;">Montage met effecten en bewerkte foto's</p>
       </div>
     </div>
-    <!-- verborgen input voor montagekeuze -->
     <input type="hidden" id="montageKeuze" value="Geen montage">
     <div style="text-align:center; margin-top:1.5rem;">
       <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder</button>
     </div>
   </div>
 
-  <!-- formulier sectie (eerst verborgen) -->
+  <!-- formulier sectie -->
   <div id="formulierSectie" class="form-blok hidden">
     <h2>Uw gegevens</h2>
     <div class="gekozen-pakket" id="gekozenPakketLabel">U heeft Pakket: Basis</div>
     <div style="margin-bottom:1.2rem;" id="gekozenMontageLabel"></div>
 
     <form id="boekForm" action="https://formspree.io/f/xnjgavrv" method="POST">
-      <!-- hidden velden voor pakket en montage -->
       <input type="hidden" name="pakket" id="fieldPakket" value="Basis">
       <input type="hidden" name="montage" id="fieldMontage" value="Geen montage">
 
@@ -540,7 +603,6 @@
         <label>Plaats waar moet worden gefilmd</label>
         <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
       </div>
-      <!-- datumveld -->
       <div class="form-groep">
         <label>Kies een datum</label>
         <input type="date" name="datum" required>
@@ -555,7 +617,7 @@
 
   <!-- bedankbericht -->
   <div id="bedankBericht" class="bedank-box hidden">
-    <i class="fas fa-check-circle" style="font-size:3rem; color:#2d7a64;"></i>
+    <i class="fas fa-check-circle" style="font-size:3rem;"></i>
     <p>Bedankt voor het invullen van het formulier. We nemen zo snel mogelijk contact met u op.</p>
   </div>
 
