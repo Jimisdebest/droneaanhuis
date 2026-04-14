@@ -14,14 +14,22 @@
       box-sizing: border-box;
     }
 
+    /* --- CRITICAL FIX: FOOTER STICKY BOTTOM --- */
+    html, body {
+      height: 100%;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #fafcff;
       color: #111827;
       line-height: 1.5;
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* main container groeit mee met content, duwt footer naar beneden */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -29,6 +37,14 @@
       border-radius: 2rem;
       box-shadow: 0 20px 35px -12px rgba(0, 65, 80, 0.12);
       padding: 2rem 2rem;
+      flex: 1;            /* neemt alle beschikbare ruimte in, duwt footer omlaag */
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* inhoud groeit mee, maar footer blijft plakken */
+    .content-wrapper {
+      flex: 1;
     }
 
     /* header */
@@ -174,13 +190,17 @@
       font-size: 1rem;
     }
 
+    /* FOOTER – gegarandeerd onderaan, geen gekke marges meer */
     footer {
-      margin-top: 3rem;
+      margin-top: 2rem;
       text-align: center;
       color: #6c7f96;
       border-top: 1px solid #e2edf2;
-      padding-top: 2rem;
+      padding: 1.8rem 0 0.8rem 0;
       font-size: 0.85rem;
+      background: transparent;
+      width: 100%;
+      flex-shrink: 0;   /* voorkomt dat footer krimpt */
     }
 
     /* ----- LIGHTBOX (popup) ----- */
@@ -279,50 +299,49 @@
 </head>
 <body>
 <div class="container">
-  <!-- header met logo en terugknop -->
-  <div class="header-flex">
-    <div class="logo-blok">
-      <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
-      <h1>Drone aan Huis</h1>
-    </div>
-    <a href="index.html" class="terug-knop"><i class="fas fa-arrow-left"></i> Terug naar home</a>
-  </div>
-
-  <!-- titel -->
-  <div class="project-titel">
-    <i class="fas fa-images"></i> Onze projecten
-  </div>
-
-  <!-- korte uitleg -->
-  <div class="project-inleiding">
-    <p><i class="fas fa-camera-retro" style="margin-right: 0.6rem;"></i> Hier ziet u projecten die ik al heb gehad. Klik op een foto voor details.</p>
-  </div>
-
-  <div class="foto-grid">
-    <!-- project 1 -->
-    <div class="foto-card" data-img="Herenweg328.png" data-title="Herenweg 328 · Noordwijkerhout · maart 2026">
-      <img src="Herenweg328.png" alt="Foto Herenweg 328">
-      <div class="foto-info">
-        <h3>Herenweg 328</h3>
-        <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
-        <p><i class="fas fa-calendar"></i> 19 maart 2026</p>
+  <!-- header en volledige inhoud -->
+  <div class="content-wrapper">
+    <div class="header-flex">
+      <div class="logo-blok">
+        <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
+        <h1>Drone aan Huis</h1>
       </div>
+      <a href="index.html" class="terug-knop"><i class="fas fa-arrow-left"></i> Terug naar home</a>
     </div>
 
+    <div class="project-titel">
+      <i class="fas fa-images"></i> Onze projecten
+    </div>
+
+    <div class="project-inleiding">
+      <p><i class="fas fa-camera-retro" style="margin-right: 0.6rem;"></i> Hier ziet u projecten die ik al heb gehad. Klik op een foto voor details.</p>
+    </div>
+
+    <!-- CORRECTIE: dubbele .foto-grid opgelost, nu 2 kaarten correct naast elkaar -->
     <div class="foto-grid">
-    <!-- project 2 -->
-    <div class="foto-card" data-img="GVink.png" data-title="Giel Vink Introductievideo · Noordwijkerhout · april 2026">
-      <img src="GVink.png" alt="Foto Introductievideo Giel Vink">
-      <div class="foto-info">
-        <h3>Giel Vink Introductievideo</h3>
-        <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
-        <p><i class="fas fa-calendar"></i> 3 april 2026</p>
+      <!-- project 1 -->
+      <div class="foto-card" data-img="Herenweg328.png" data-title="Herenweg 328 · Noordwijkerhout · maart 2026">
+        <img src="Herenweg328.png" alt="Foto Herenweg 328">
+        <div class="foto-info">
+          <h3>Herenweg 328</h3>
+          <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
+          <p><i class="fas fa-calendar"></i> 19 maart 2026</p>
+        </div>
+      </div>
+
+      <!-- project 2 -->
+      <div class="foto-card" data-img="GVink.png" data-title="Giel Vink Introductievideo · Noordwijkerhout · april 2026">
+        <img src="GVink.png" alt="Foto Introductievideo Giel Vink">
+        <div class="foto-info">
+          <h3>Giel Vink Introductievideo</h3>
+          <p><i class="fas fa-location-dot"></i> Noordwijkerhout</p>
+          <p><i class="fas fa-calendar"></i> 3 april 2026</p>
+        </div>
       </div>
     </div>
-    
   </div>
 
-  <!-- footer -->
+  <!-- footer: blijft nu altijd onderaan, zelfs bij weinig content -->
   <footer>
     <p>Drone aan Huis – Jim Schellekens</p>
     <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
@@ -338,7 +357,7 @@
 
 <script>
   (function() {
-    // lichtbox elementen
+    // lightbox elementen
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -351,7 +370,7 @@
     fotos.forEach(card => {
       card.addEventListener('click', function(e) {
         // data attributen uitlezen
-        const imgSrc = this.dataset.img;          // bijv. Herenweg328.png
+        const imgSrc = this.dataset.img;          // bijv. Herenweg328.png of GVink.png
         const title = this.dataset.title;         // onderschrift
 
         if (imgSrc) {
