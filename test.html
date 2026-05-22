@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Drone aan Huis</title>
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Trustpilot script (moet geladen worden voordat de widget werkt) -->
+  <script src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fafcff;
+      color: #111827;
+      line-height: 1.5;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 65, 80, 0.12);
+      padding: 2rem 2rem;
+    }
+
+    /* header */
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-blok {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      width: 120px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-blok h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0B2B40, #1C6E8F);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* naam-badge verwijderd */
+    .naam-badge {
+      display: none;
+    }
+
+    /* regio row */
+    .regio-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .regio-tag {
+      background: #eef3f7;
+      border-radius: 60px;
+      padding: 0.6rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1f5e72;
+      border: 1px solid #d0e2ed;
+    }
+
+    .regio-tag i {
+      color: #1C6E8F;
+    }
+
+    .projecten-knop {
+      background: transparent;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .projecten-knop:hover {
+      background: #1C6E8F;
+      color: white;
+    }
+
+    .projecten-knop i {
+      font-size: 1rem;
+    }
+
+    /* intro box */
+    .intro-box {
+      background: #f9fdfe;
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #e2edf2;
+      box-shadow: 0 8px 18px -8px rgba(28,110,143,0.08);
+      transition: 0.2s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .intro-box p {
+      font-size: 1.2rem;
+      max-width: 750px;
+      color: #2c3e44;
+    }
+
+    .info-knop {
+      background: #ffffff;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(28,110,143,0.08);
+    }
+
+    .info-knop i {
+      font-size: 1.2rem;
+    }
+
+    .info-knop:hover {
+      background: #1C6E8F;
+      color: white;
+      border-color: #1C6E8F;
+      transform: translateY(-2px);
+    }
+
+    /* titels */
+    .tussentitel {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 2.5rem 0 1.5rem;
+      color: #0B2B40;
+      border-left: 5px solid #1C6E8F;
+      padding-left: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* pakket grid */
+    .pakket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 2rem;
+    }
+
+    .pakket-card {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 1.8rem 1.5rem 1.8rem;
+      border: 1px solid #eef2f8;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .pakket-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(28,110,143,0.15);
+      border-color: #cde3ec;
+    }
+
+    .pakket-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+      margin-bottom: 0.5rem;
+    }
+
+    .pakket-prijs {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1C6E8F;
+      margin: 0.5rem 0 1rem;
+      border-bottom: 2px dotted #d4e2ec;
+      padding-bottom: 0.6rem;
+    }
+
+    .pakket-prijs small {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #5f7f8c;
+    }
+
+    .pakket-lijst {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    .pakket-lijst li {
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      color: #2c3e44;
+    }
+
+    .pakket-lijst i {
+      color: #1C6E8F;
+      width: 24px;
+      font-size: 1.1rem;
+    }
+
+    .kies-knop {
+      background: transparent;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .kies-knop:hover {
+      background: #1C6E8F;
+      color: white;
+    }
+
+    /* montage blok */
+    .montage-blok {
+      background: #f9fefc;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.2rem;
+      margin: 2.5rem 0 2rem;
+      border: 1px solid #e2edf2;
+      scroll-margin-top: 30px;
+      transition: 0.3s;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+    }
+
+    .montage-blok h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+      margin-bottom: 1.5rem;
+    }
+
+    .montage-blok h2 i {
+      color: #1C6E8F;
+      margin-right: 0.5rem;
+    }
+
+    .montage-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .montage-optie-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      flex: 1 1 220px;
+      border: 2px solid #e2edf2;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .montage-optie-card.selected {
+      border-color: #1C6E8F;
+      background: #f0f9ff;
+      box-shadow: 0 8px 20px -8px rgba(28,110,143,0.2);
+    }
+
+    .montage-optie-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0B2B40;
+    }
+
+    .montage-prijs {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1C6E8F;
+      margin: 0.8rem 0;
+    }
+
+    .montage-optie-card i {
+      font-size: 2rem;
+      color: #1C6E8F;
+      margin-bottom: 0.5rem;
+    }
+
+    .montage-optie-card p {
+      font-size: 0.9rem;
+      color: #5a6e7a;
+    }
+
+    /* formulier */
+    .form-blok {
+      background: #f9fefc;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.2rem;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #e2edf2;
+    }
+
+    .form-blok h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+      margin-bottom: 1rem;
+    }
+
+    .gekozen-pakket {
+      background: #eef3f7;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0.5rem 0 1rem;
+      color: #1C6E8F;
+    }
+
+    .form-groep {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-groep label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #1f4a5c;
+    }
+
+    .form-groep input {
+      width: 100%;
+      padding: 0.9rem 1.4rem;
+      font-size: 1rem;
+      border: 2px solid #e2edf2;
+      border-radius: 60px;
+      background: white;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-groep input:focus {
+      outline: none;
+      border-color: #1C6E8F;
+      box-shadow: 0 0 0 3px rgba(28,110,143,0.15);
+    }
+
+    .form-groep input[type="date"] {
+      font-family: inherit;
+      color: #1f4a5c;
+    }
+
+    .verstuur-knop {
+      background: #1C6E8F;
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .verstuur-knop:hover {
+      background: #0f5775;
+      transform: translateY(-2px);
+    }
+
+    /* bedankbericht */
+    .bedank-box {
+      background: #eef7f2;
+      border-radius: 2.5rem;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      border: 2px solid #bdd9cf;
+      font-size: 1.4rem;
+    }
+
+    .bedank-box i {
+      color: #1C6E8F;
+      margin-bottom: 1rem;
+    }
+
+    /* footer */
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #6c7f96;
+      border-top: 1px solid #e2edf2;
+      padding-top: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Trustpilot widget styling */
+    .trustpilot-container {
+      text-align: center;
+      margin: 1.5rem 0 0.5rem 0;
+      padding: 0.5rem 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* responsive */
+    @media (max-width: 800px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.5rem;
+      }
+      .intro-box {
+        flex-direction: column;
+        text-align: center;
+      }
+      .intro-box p {
+        text-align: left;
+      }
+      .tussentitel {
+        font-size: 1.8rem;
+      }
+      .montage-flex {
+        flex-direction: column;
+      }
+      .montage-optie-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header-flex">
+    <div class="logo-blok">
+      <img src="favicon.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
+      <h1>Drone aan Huis</h1>
+    </div>
+  </div>
+
+  <div class="regio-row">
+    <div class="regio-tag">
+      <i class="fas fa-map-pin"></i> Noordwijk, Noordwijkerhout, De Zilk, Voorhout
+    </div>
+    <a href="projecten" class="projecten-knop">
+      <i class="fas fa-images"></i> Bekijk onze projecten
+    </a>
+  </div>
+
+  <div class="intro-box">
+    <p><span style="font-size:2rem; display:inline-block; margin-right:0.3rem;">👋</span> Hoi, ik ben Jim. Ik verhuur mezelf als dronepiloot. Ik kom bij je langs in de omgeving. Je betaalt contant als ik aankom, vóór het vliegen. U kunt altijd zelf kiezen waar en hoe ik vlieg.</p>
+    <a href="info" class="info-knop"><i class="fas fa-circle-info"></i> Meer informatie</a>
+  </div>
+
+  <!-- titel pakketten -->
+  <div class="tussentitel">Kies je pakket</div>
+
+  <!-- pakketten grid -->
+  <div class="pakket-grid">
+    <!-- basis -->
+    <div class="pakket-card" data-pakketnaam="Basis">
+      <h3>Basis</h3>
+      <div class="pakket-prijs">€10 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-clock"></i> 15 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
+        <li><i class="fas fa-camera"></i> Ongeveer 8 foto's</li>
+      </ul>
+      <button class="kies-knop pakket-kies" data-pakket="Basis"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
+    </div>
+    <!-- plus -->
+    <div class="pakket-card" data-pakketnaam="Plus">
+      <h3>Plus</h3>
+      <div class="pakket-prijs">€15 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-clock"></i> 30 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
+        <li><i class="fas fa-images"></i> Ongeveer 16 foto's</li>
+      </ul>
+      <button class="kies-knop pakket-kies" data-pakket="Plus"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
+    </div>
+    <!-- premium -->
+    <div class="pakket-card" data-pakketnaam="Premium">
+      <h3>Premium</h3>
+      <div class="pakket-prijs">€20 <small>per keer</small></div>
+      <ul class="pakket-lijst">
+        <li><i class="fas fa-clock"></i> 2 x 30 min vliegen</li>
+        <li><i class="fas fa-video"></i> 4K videos / 60 FPS</li>
+        <li><i class="fas fa-battery-full"></i> Zoveel foto's als mogelijk in vliegtijd</li>
+      </ul>
+      <button class="kies-knop pakket-kies" data-pakket="Premium"><i class="fas fa-arrow-down"></i> Kies dit pakket</button>
+    </div>
+  </div>
+
+  <!-- montage sectie -->
+  <div id="montageSectie" class="montage-blok hidden">
+    <h2><i class="fas fa-scissors"></i> Kies je videomontage</h2>
+    <div style="font-size:1.1rem; margin-bottom:1rem; color:#2c5f72;" id="toonGekozenPakket"></div>
+    <div class="montage-flex">
+      <div class="montage-optie-card" data-montage="Geen montage" data-prijs="0">
+        <i class="fas fa-ban"></i>
+        <h3>Geen montage</h3>
+        <div class="montage-prijs">€0</div>
+        <p style="color:#2d5d6e;">Je krijgt de losse beelden</p>
+      </div>
+      <div class="montage-optie-card" data-montage="Videomontage Basis" data-prijs="2">
+        <i class="fas fa-video"></i>
+        <h3>Basis montage</h3>
+        <div class="montage-prijs">€2</div>
+        <p style="color:#2d5d6e;">Eenvoudige montage, alle foto's en video's achter elkaar</p>
+      </div>
+      <div class="montage-optie-card" data-montage="Videomontage Premium" data-prijs="5">
+        <i class="fas fa-star"></i>
+        <h3>Premium montage</h3>
+        <div class="montage-prijs">€5</div>
+        <p style="color:#2d5d6e;">Montage met effecten en bewerkte foto's</p>
+      </div>
+    </div>
+    <input type="hidden" id="montageKeuze" value="Geen montage">
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button id="gaNaarGegevens" class="kies-knop" style="width:auto; padding:0.8rem 3rem; display:inline-flex;"><i class="fas fa-arrow-down"></i> Verder</button>
+    </div>
+  </div>
+
+  <!-- formulier sectie -->
+  <div id="formulierSectie" class="form-blok hidden">
+    <h2>Uw gegevens</h2>
+    <div class="gekozen-pakket" id="gekozenPakketLabel">U heeft Pakket: Basis</div>
+    <div style="margin-bottom:1.2rem;" id="gekozenMontageLabel"></div>
+
+    <form id="boekForm" action="https://formspree.io/f/xnjgavrv" method="POST">
+      <input type="hidden" name="pakket" id="fieldPakket" value="Basis">
+      <input type="hidden" name="montage" id="fieldMontage" value="Geen montage">
+
+      <div class="form-groep">
+        <label>Naam</label>
+        <input type="text" name="naam" placeholder="Jan Jansen" required>
+      </div>
+      <div class="form-groep">
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="jan@voorbeeld.nl" required>
+      </div>
+      <div class="form-groep">
+        <label>Telefoonnummer (niet verplicht)</label>
+        <input type="tel" name="telefoon" placeholder="06 12345678">
+      </div>
+      <div class="form-groep">
+        <label>Plaats waar moet worden gefilmd</label>
+        <input type="text" name="plaats" placeholder="Noordwijk, Noordwijkerhout, De Zilk, Voorhout ..." required>
+      </div>
+      <div class="form-groep">
+        <label>Kies een datum</label>
+        <input type="date" name="datum" required>
+      </div>
+      <div class="form-groep">
+        <label>Opmerkingen</label>
+        <input type="text" name="opmerking" placeholder="eventueel extra info">
+      </div>
+      <button type="submit" class="verstuur-knop"><i class="fas fa-paper-plane"></i> Verstuur aanvraag</button>
+    </form>
+  </div>
+
+  <!-- bedankbericht -->
+  <div id="bedankBericht" class="bedank-box hidden">
+    <i class="fas fa-check-circle" style="font-size:3rem;"></i>
+    <p>Bedankt voor het invullen van het formulier. We nemen zo snel mogelijk contact met u op.</p>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <p>Drone aan Huis – Jim Schellekens</p>
+    <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout en op bespreking verder</p>
+    
+    <!-- Trustpilot Micro Star Badge -->
+    <div class="trustpilot-container">
+      <div class="trustpilot-widget" data-locale="nl-NL" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="O5NbZGI1nyYFyDp9" data-style-height="24px" data-style-width="100%" data-theme="light">
+        <a href="https://nl.trustpilot.com/review/droneaanhuis.jimschellekens.nl" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    // elementen
+    const pakketKnoppen = document.querySelectorAll('.pakket-kies');
+    const montageSectie = document.getElementById('montageSectie');
+    const formulierSectie = document.getElementById('formulierSectie');
+    const bedankBox = document.getElementById('bedankBericht');
+    const toonPakket = document.getElementById('toonGekozenPakket');
+    const gekozenPakketLabel = document.getElementById('gekozenPakketLabel');
+    const gekozenMontageLabel = document.getElementById('gekozenMontageLabel');
+    const fieldPakket = document.getElementById('fieldPakket');
+    const fieldMontage = document.getElementById('fieldMontage');
+    const montageKeuzeInput = document.getElementById('montageKeuze');
+    const gaNaarGegevensBtn = document.getElementById('gaNaarGegevens');
+    const boekForm = document.getElementById('boekForm');
+
+    let gekozenPakket = 'Basis';
+
+    // montagekaarten selecteren
+    const montageCards = document.querySelectorAll('.montage-optie-card');
+    montageCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        montageCards.forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        const montageType = this.dataset.montage;
+        montageKeuzeInput.value = montageType;
+      });
+    });
+    // standaard geen montage geselecteerd
+    if (montageCards.length > 0) montageCards[0].classList.add('selected');
+
+    // bij klikken op pakketknop
+    pakketKnoppen.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pakket = this.dataset.pakket;
+        gekozenPakket = pakket;
+        montageSectie.classList.remove('hidden');
+        formulierSectie.classList.add('hidden');
+        bedankBox.classList.add('hidden');
+        fieldPakket.value = pakket + ' pakket (15 min)';
+        toonPakket.innerHTML = `Gekozen pakket: <strong>${pakket}</strong>`;
+        gekozenPakketLabel.innerText = `Pakket: ${pakket}`;
+        montageSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ga naar gegevens knop
+    gaNaarGegevensBtn.addEventListener('click', function() {
+      const selectedMontage = document.querySelector('.montage-optie-card.selected');
+      let montageTekst = 'Geen montage';
+      if (selectedMontage) {
+        montageTekst = selectedMontage.dataset.montage;
+      }
+      fieldMontage.value = montageTekst;
+      gekozenMontageLabel.innerHTML = `Montage: <strong>${montageTekst}</strong>`;
+      formulierSectie.classList.remove('hidden');
+      formulierSectie.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // form submit met fetch
+    boekForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const selectedMontage = document.querySelector('.montage-optie-card.selected');
+      let montageTekst = 'Geen montage';
+      if (selectedMontage) montageTekst = selectedMontage.dataset.montage;
+      fieldMontage.value = montageTekst;
+
+      const formData = new FormData(boekForm);
+      fetch('https://formspree.io/f/xnjgavrv', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          formulierSectie.classList.add('hidden');
+          montageSectie.classList.add('hidden');
+          bedankBox.classList.remove('hidden');
+          bedankBox.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('Er ging iets mis. Probeer het later opnieuw.');
+        }
+      })
+      .catch(() => alert('Netwerkfout.'));
+    });
+  })();
+</script>
+</body>
+</html>
