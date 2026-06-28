@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Drone aan Huis · Projecten</title>
+  <link rel="icon" href="logo.png" type="image/png" sizes="32x32">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fafcff;
+      color: #111827;
+      line-height: 1.5;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 65, 80, 0.12);
+      padding: 2rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-wrapper {
+      flex: 1;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-blok {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
+
+    .logo-blok h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0B2B40, #1C6E8F);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .terug-knop {
+      background: transparent;
+      border: 2px solid #1C6E8F;
+      color: #1C6E8F;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .terug-knop:hover {
+      background: #1C6E8F;
+      color: white;
+    }
+
+    .project-titel {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 1rem 0 2rem 0;
+      color: #0B2B40;
+      border-left: 5px solid #1C6E8F;
+      padding-left: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-titel i {
+      color: #1C6E8F;
+      margin-right: 0.6rem;
+    }
+
+    .project-inleiding {
+      background: #f9fefc;
+      border-radius: 2rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #e2edf2;
+      font-size: 1.1rem;
+      color: #2c3e44;
+      box-shadow: 0 4px 12px rgba(28,110,143,0.04);
+    }
+
+    .project-inleiding i {
+      color: #1C6E8F;
+    }
+
+    /* ─── projectblokken: meerdere foto's & video's ─── */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin: 2.5rem 0;
+    }
+
+    .project-blok {
+      background: #ffffff;
+      border-radius: 2rem;
+      border: 1px solid #eef2f8;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .project-blok:hover {
+      box-shadow: 0 20px 30px -12px rgba(28,110,143,0.10);
+      border-color: #cde3ec;
+    }
+
+    .project-header {
+      padding: 1.5rem 2rem 0.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0B2B40;
+    }
+
+    .project-header .project-meta {
+      display: flex;
+      gap: 1.2rem;
+      color: #5a6e7a;
+      font-size: 0.95rem;
+    }
+
+    .project-header .project-meta i {
+      color: #1C6E8F;
+      margin-right: 0.3rem;
+    }
+
+    .project-media {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      padding: 1.5rem 2rem 2rem 2rem;
+    }
+
+    .media-item {
+      border-radius: 1.4rem;
+      overflow: hidden;
+      background: #f2f7fa;
+      border: 1px solid #e2edf2;
+      transition: 0.2s;
+      cursor: pointer;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .media-item:hover {
+      transform: scale(1.02);
+      border-color: #1C6E8F;
+      box-shadow: 0 12px 20px -10px rgba(28,110,143,0.2);
+    }
+
+    .media-item img,
+    .media-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #dce6ec;
+    }
+
+    .media-item video {
+      background: #0a1a22;
+    }
+
+    .media-item .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      pointer-events: none;
+      opacity: 0.9;
+      background: rgba(0,0,0,0.3);
+      border-radius: 60px;
+      padding: 0.3rem 0.8rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .media-item .mediatype-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(11, 43, 64, 0.75);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* lightbox (voor foto's + video's) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.88);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+      border: 3px solid white;
+      background: black;
+      object-fit: contain;
+    }
+
+    .sluit-knop {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      background: transparent;
+      border: none;
+      line-height: 1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .sluit-knop:hover {
+      color: #cde3ec;
+      transform: scale(1.05);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      background: rgba(11, 43, 64, 0.75);
+      padding: 0.6rem 1.5rem;
+      backdrop-filter: blur(5px);
+      border-radius: 60px;
+      white-space: nowrap;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-family: 'Inter', sans-serif;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: #6c7f96;
+      border-top: 1px solid #e2edf2;
+      padding: 1.8rem 0 0.8rem 0;
+      font-size: 0.85rem;
+      background: transparent;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 800px) {
+      body { padding: 1rem; }
+      .container { padding: 1.5rem; }
+      .project-titel { font-size: 1.8rem; }
+      .project-media { grid-template-columns: 1fr 1fr; padding: 1rem; }
+      .project-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .lightbox-caption { font-size: 0.85rem; white-space: normal; max-width: 85vw; padding: 0.5rem 1.2rem; }
+      .sluit-knop { top: 15px; right: 20px; font-size: 2.2rem; }
+      .media-item { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="content-wrapper">
+    <div class="header-flex">
+      <div class="logo-blok">
+        <img src="logo.png" alt="Drone aan Huis Logo" class="logo-img" onerror="this.style.display='none'">
+        <h1>Drone aan Huis</h1>
+      </div>
+      <a href="index.html" class="terug-knop"><i class="fas fa-arrow-left"></i> Terug naar home</a>
+    </div>
+
+    <div class="project-titel">
+      <i class="fas fa-folder-open"></i> Projecten met foto's & video's
+    </div>
+
+    <div class="project-inleiding">
+      <p><i class="fas fa-camera-retro" style="margin-right: 0.6rem;"></i> Elk project bevat meerdere foto's en video's. Klik op een media-item voor vergroting of afspelen.</p>
+    </div>
+
+    <!-- ─── PROJECTEN (met meerdere foto's en video's) ─── -->
+    <div class="project-grid">
+
+      <!-- PROJECT 1: Herenweg 328 -->
+      <div class="project-blok">
+        <div class="project-header">
+          <h2>Herenweg 328</h2>
+          <div class="project-meta">
+            <span><i class="fas fa-location-dot"></i> Noordwijkerhout</span>
+            <span><i class="fas fa-calendar"></i> 19 maart 2026</span>
+          </div>
+        </div>
+        <div class="project-media">
+          <!-- foto 1 -->
+          <div class="media-item" data-type="image" data-src="Herenweg328.png" data-title="Herenweg 328 · overzicht">
+            <img src="Herenweg328.png" alt="Herenweg 328 overzicht">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          <!-- foto 2 (placeholder / extra) -->
+          <div class="media-item" data-type="image" data-src="https://picsum.photos/id/1015/600/400" data-title="Herenweg 328 · detail dak">
+            <img src="https://picsum.photos/id/1015/600/400" alt="detail dak">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          <!-- video 1 (placeholder) -->
+          <div class="media-item" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-title="Herenweg 328 · dronevlucht">
+            <video muted preload="metadata" playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <span class="mediatype-badge"><i class="fas fa-video"></i> video</span>
+            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          </div>
+          <!-- video 2 (placeholder) -->
+          <div class="media-item" data-type="video" data-src="https://www.w3schools.com/html/movie.mp4" data-title="Herenweg 328 · rondvlucht">
+            <video muted preload="metadata" playsinline>
+              <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            </video>
+            <span class="mediatype-badge"><i class="fas fa-video"></i> video</span>
+            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          </div>
+        </div>
+      </div>
+
+    <!-- PROJECT 2: Volkstuin Janneke -->
+      <div class="project-blok">
+        <div class="project-header">
+          <h2>Giel Vink · Introductie</h2>
+          <div class="project-meta">
+            <span><i class="fas fa-location-dot"></i> Voorhout</span>
+            <span><i class="fas fa-calendar"></i> 27 Juni 2026</span>
+          </div>
+        </div>
+        <div class="project-media">
+          <!-- foto 1 -->
+          <div class="media-item" data-type="image" data-src="Volkstuin Janneke 1.jpg" data-title="Giel Vink · portret">
+            <img src="Volkstuin Janneke 1.jpg" alt="De tuin">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          <!-- foto 2 -->
+          <div class="media-item" data-type="image" data-src="Volkstuin Janneke 4 (overvieuw).jpg" data-title="Giel Vink · omgeving">
+            <img src="Volkstuin Janneke 4 (overvieuw).jpg" alt="Het relaxplekje">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+    
+      <!-- PROJECT 2: Giel Vink Introductievideo -->
+      <div class="project-blok">
+        <div class="project-header">
+          <h2>Giel Vink · Introductie</h2>
+          <div class="project-meta">
+            <span><i class="fas fa-location-dot"></i> Noordwijkerhout</span>
+            <span><i class="fas fa-calendar"></i> 3 april 2026</span>
+          </div>
+        </div>
+        <div class="project-media">
+          <!-- foto 1 -->
+          <div class="media-item" data-type="image" data-src="GVink.png" data-title="Giel Vink · portret">
+            <img src="GVink.png" alt="Giel Vink portret">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Drone aan Huis – Jim Schellekens</p>
+    <p style="margin-top:0.5rem;">Beschikbaar in Noordwijk, Noordwijkerhout, De Zilk, Voorhout</p>
+  </footer>
+</div>
+
+<!-- LIGHTBOX (ondersteunt zowel afbeeldingen als video's) -->
+<div id="lightbox" class="lightbox">
+  <span class="sluit-knop" id="sluitLightbox"><i class="fas fa-times-circle"></i></span>
+  <div style="position:relative; display:flex; align-items:center; justify-content:center; width:100%; height:100%;">
+    <!-- voor afbeeldingen -->
+    <img class="lightbox-content" id="lightbox-img" src="" alt="" style="display:none;">
+    <!-- voor video's -->
+    <video class="lightbox-content" id="lightbox-video" controls playsinline style="display:none; max-width:90vw; max-height:85vh; border-radius:1.5rem; background:black;">
+      <source id="video-source" src="" type="video/mp4">
+    </video>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxVideo = document.getElementById('lightbox-video');
+    const videoSource = document.getElementById('video-source');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const sluitBtn = document.getElementById('sluitLightbox');
+
+    // alle media-items
+    const mediaItems = document.querySelectorAll('.media-item');
+
+    // functie om lightbox te openen
+    function openLightbox(type, src, title) {
+      // verberg beide
+      lightboxImg.style.display = 'none';
+      lightboxVideo.style.display = 'none';
+      lightboxVideo.pause();
+
+      if (type === 'image') {
+        lightboxImg.src = src;
+        lightboxImg.alt = title || '';
+        lightboxImg.style.display = 'block';
+        lightboxCaption.textContent = title || '';
+      } else if (type === 'video') {
+        videoSource.src = src;
+        lightboxVideo.load();
+        lightboxVideo.style.display = 'block';
+        lightboxCaption.textContent = title || '';
+        // probeer autoplay (werkt niet altijd, maar we doen een poging)
+        setTimeout(() => { lightboxVideo.play().catch(e => {}); }, 100);
+      }
+      lightbox.classList.add('show');
+    }
+
+    // klik op media-item
+    mediaItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        const type = this.dataset.type || 'image';
+        const src = this.dataset.src;
+        const title = this.dataset.title || '';
+
+        // als er een video in zit, pak de source uit de video tag (fallback)
+        let finalSrc = src;
+        if (!finalSrc) {
+          const videoEl = this.querySelector('video');
+          if (videoEl) {
+            const sourceEl = videoEl.querySelector('source');
+            if (sourceEl) finalSrc = sourceEl.src;
+          }
+        }
+        if (finalSrc) {
+          openLightbox(type, finalSrc, title);
+        }
+      });
+    });
+
+    // sluiten
+    function closeLightbox() {
+      lightbox.classList.remove('show');
+      lightboxImg.src = '';
+      lightboxVideo.pause();
+      lightboxVideo.style.display = 'none';
+      lightboxImg.style.display = 'none';
+      videoSource.src = '';
+      lightboxVideo.load();
+    }
+
+    sluitBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target.closest('.lightbox') === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('show')) {
+        closeLightbox();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
