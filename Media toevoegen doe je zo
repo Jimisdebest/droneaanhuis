@@ -1,0 +1,48 @@
+Media toevoegen doe je zo:
+
+Voorbeeld volledig project:
+
+<!-- PROJECT cijfer hoeveelste project: Naam Project -->
+      <div class="project-blok">
+        <div class="project-header">
+          <h2>Naam Project</h2>
+          <div class="project-meta">
+            <span><i class="fas fa-location-dot"></i> Stad / Dorp</span>
+            <span><i class="fas fa-calendar"></i> Precieze Datum</span>
+          </div>
+        </div>
+        <div class="project-media">
+          <!-- foto 1 -->
+          <div class="media-item" data-type="image" data-src="bestandlocatie.png" data-title="Naam Foto">
+            <img src="bestandlocatie.png" alt="Naam Foto">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          <!-- video 2 -->
+          <div class="media-item" data-type="video" data-src="bestandlocatie.mp4" data-title="Naam Video">
+            <video muted preload="metadata" playsinline>
+              <source src="bestandlocatie.mp4" type="video/mp4">
+            </video>
+            <span class="mediatype-badge"><i class="fas fa-video"></i> video</span>
+            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          </div>
+        </div>
+      </div>
+
+Een video:
+
+<!-- video aantalste bestand -->
+          <div class="media-item" data-type="video" data-src="bestandlocatie.mp4" data-title="Naam Video">
+            <video muted preload="metadata" playsinline>
+              <source src="bestandlocatie.mp4" type="video/mp4">
+            </video>
+            <span class="mediatype-badge"><i class="fas fa-video"></i> video</span>
+            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          </div>
+
+Een foto:
+
+<!-- foto aantalste bestand -->
+          <div class="media-item" data-type="image" data-src="bestandlocatie.png" data-title="Naam Foto">
+            <img src="bestandlocatie.png" alt="Naam Foto">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
