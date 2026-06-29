@@ -10,16 +10,18 @@
         <div class="project-media">
           <!-- foto 1 -->
           <div class="media-item" data-type="image" data-src="TentopCalorama2.jpg" data-title="Tent op Calorama">
-            <img src="TentopCalorama2.jpg" alt="Naam Foto">
+            <img src="TentopCalorama2.jpg" alt="Tent op Calorama">
             <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
           </div>
-          <!-- video 2 -->
-          <div class="media-item" data-type="video" data-src="bestandlocatie.mp4" data-title="Naam Video">
-            <video muted preload="metadata" playsinline>
-              <source src="bestandlocatie.mp4" type="video/mp4">
-            </video>
-            <span class="mediatype-badge"><i class="fas fa-video"></i> video</span>
-            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+          <!-- foto 2 -->
+          <div class="media-item" data-type="image" data-src="TentopCalorama4.jpg" data-title="Tent op Calorama">
+            <img src="TentopCalorama4.jpg" alt="Tent op Calorama">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
+          </div>
+          <!-- foto 3 -->
+          <div class="media-item" data-type="image" data-src="UitzichtTentopCalorama.jpg" data-title="Uitzicht tent op Calorama">
+            <img src="UitzichtTentopCalorama.jpg" alt="Uitzicht tent op Calorama">
+            <span class="mediatype-badge"><i class="fas fa-image"></i> foto</span>
           </div>
         </div>
       </div>
